@@ -1,0 +1,13 @@
+:root {
+  --bg: #c5c8c6;
+}
+
+html {
+  font-family: "Calibri";
+}
+
+body {
+  margin: 120px auto;
+  max-width: 800px;
+  padding: 1rem;
+}
