@@ -1,9 +1,23 @@
 :root {
-  --bg: #c5c8c6;
+  --darker: #212529;
+  --dark: #495057;
+  --light: #dee2e6;
+  --medium: #adb5bd;
+  --lighter: #f8f9fa;
+  --accent: #ef233c;
+
+  --yellow: #ffbe0b;
+  --orange: #fb5607;
+  --pink: #ff006e;
+  --purple: #8338ec;
+  --blue: #3a86ff;
+
 }
 
 html {
   font-family: "Calibri";
+  color: var(--darker);
+  box-sizing: border-box;
 }
 
 body {
