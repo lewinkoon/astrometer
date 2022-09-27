@@ -7,9 +7,8 @@
       .select("*");
 
     const header = Object.keys(telemetry[0]);
-    console.log(header, telemetry);
 
-    return [header, telemetry];
+    return { "header": header, "things": telemetry };
   }
 
   let promise = getData();
@@ -19,15 +18,15 @@
   <table>
     <thead>
       <tr>
-        {#each data[0] as head}
+        {#each data.header as head}
           <th>{head}</th>
         {/each}
       </tr>
     </thead>
     <tbody>
-      {#each data[1].slice(0, 10) as row, index}
+      {#each data.things.slice(0, 10) as row, index}
         <tr>
-          {#each data[0] as col, index}
+          {#each data.header as col, index}
             <td>{row[col]}</td>
           {/each}
         </tr>
@@ -43,6 +42,14 @@
     border: 2px solid var(--darker);
     border-radius: 5px;
     overflow: hidden;
+  }
+
+  tr:hover {
+    background-color: var(--medium);
+  }
+
+  tr:last-child td {
+    border-bottom: none;
   }
 
   td,
@@ -65,11 +72,4 @@
     border-right: none;
   }
 
-  tr:hover {
-    background-color: var(--medium);
-  }
-
-  tr:last-child td {
-    border-bottom: none;
-  }
 </style>
