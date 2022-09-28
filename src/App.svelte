@@ -7,12 +7,11 @@
 
   // fetch data from database
   async function getData(dir) {
-    sort = !sort;
 
     const { data: telemetry, error } = await supabase
       .from("telemetry")
       .select("*")
-      .order("date", { ascending: sort })
+      .order("id", { ascending: false })
       .limit(20);
 
     data = telemetry;

@@ -3,29 +3,23 @@
 
   console.log(data);
 
-  let sortBy = { col: "id", ascending: true };
+  let sortBy = "temp";
+  let ascending = false;
 
   function sort() {
-    const column = "temp";
+    
+    ascending = !ascending;
 
-    if (sortBy.col == column) {
-      sortBy.ascending = !sortBy.ascending;
-    } else {
-      sortBy.col = column;
-      sortBy.ascending = true;
-    }
+    let sortModifier = ascending ? 1 : -1;
 
-    // Modifier to sorting function for ascending or descending
-    let sortModifier = sortBy.ascending ? 1 : -1;
-
-    let sort = (a, b) =>
-      a[column] < b[column]
+    let xxx = (a, b) =>
+      a[sortBy] < b[sortBy]
         ? -1 * sortModifier
-        : a[column] > b[column]
+        : a[sortBy] > b[sortBy]
         ? 1 * sortModifier
         : 0;
 
-    data = data.sort(sort);
+    data = data.sort(xxx);
   };
 
 </script>
