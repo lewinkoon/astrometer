@@ -3,10 +3,12 @@
 
   import { supabase } from "./supabase";
 
-  async function promise() {
+   export async function promise() {
     const { data: telemetry, error } = await supabase
       .from("telemetry")
       .select("*")
+      .order('date', { ascending: false })
+      .order('time', { ascending: false })
       .limit(20);
 
     return telemetry;

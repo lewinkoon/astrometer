@@ -18,10 +18,11 @@ html {
   font-family: "Calibri";
   color: var(--darker);
   box-sizing: border-box;
+  /* background-color: var(--light); */
 }
 
 body {
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 600px;
   padding: 1rem;
 }

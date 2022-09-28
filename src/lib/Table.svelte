@@ -1,6 +1,9 @@
 <script>
   export let prop;
+
 </script>
+
+<button on:click={prop}>Reload</button>
 
 {#await prop then data}
   <table>
@@ -26,34 +29,30 @@
 <style>
   table {
     width: 100%;
-    margin: 1rem auto;
+    margin: 2rem auto;
     border-spacing: 0;
-    border: 2px solid var(--darker);
-    border-radius: 5px;
-    overflow: hidden;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: var(--lighter);
+    /* overflow: hidden; */
   }
 
-  tr:hover {
-    background-color: var(--medium);
-  }
-
-  tr:last-child td {
+  tr:last-child td{
     border-bottom: none;
+  }
+
+  th {
+    text-align: left;
+    text-transform: capitalize;
+    font-weight: normal;
+    /* font-style: italic; */
+    font-size: 0.9rem;
+    color: var(--medium);
   }
 
   td,
   th {
-    text-align: left;
-    min-width: 120px;
-    padding: 0.5rem;
-    border-right: 1px solid var(--dark);
-    border-bottom: 1px solid var(--dark);
-  }
-
-  th {
-    border-top: none;
-    background-color: var(--medium);
-    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border-bottom: thin solid var(--light);
   }
 
   td:last-child,
