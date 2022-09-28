@@ -1,20 +1,8 @@
 <script>
-  import { supabase } from "../supabase";
-
-  async function getData() {
-    const { data: telemetry, error } = await supabase
-      .from("telemetry")
-      .select("*");
-
-    const header = Object.keys(telemetry[0]);
-
-    return { "header": header, "things": telemetry };
-  }
-
-  let promise = getData();
+  export let prop;
 </script>
 
-{#await promise then data}
+{#await prop then data}
   <table>
     <thead>
       <tr>
@@ -37,7 +25,8 @@
 
 <style>
   table {
-    margin: 0 auto;
+    width: 100%;
+    margin: 1rem auto;
     border-spacing: 0;
     border: 2px solid var(--darker);
     border-radius: 5px;
