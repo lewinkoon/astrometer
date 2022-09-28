@@ -6,15 +6,15 @@
   <table>
     <thead>
       <tr>
-        {#each data.header as head}
+        {#each (Object.keys(data[0])) as head}
           <th>{head}</th>
         {/each}
       </tr>
     </thead>
     <tbody>
-      {#each data.things.slice(0, 10) as row, index}
+      {#each data as row, index}
         <tr>
-          {#each data.header as col, index}
+          {#each (Object.keys(data[0])) as col, index}
             <td>{row[col]}</td>
           {/each}
         </tr>

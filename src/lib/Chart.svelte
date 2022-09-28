@@ -16,7 +16,7 @@
         datasets: [
           {
             label: "Dataset",
-            data: data.things.map( e => e.temp )
+            data: data.things.map( (/** @type {{ temp: any; }} */ e) => e.temp )
           },
         ],
       }
