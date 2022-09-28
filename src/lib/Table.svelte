@@ -1,30 +1,55 @@
 <script>
-  export let prop;
+  export let data;
+
+  console.log(data);
+
+  let sortBy = { col: "id", ascending: true };
+
+  function sort() {
+    const column = "temp";
+
+    if (sortBy.col == column) {
+      sortBy.ascending = !sortBy.ascending;
+    } else {
+      sortBy.col = column;
+      sortBy.ascending = true;
+    }
+
+    // Modifier to sorting function for ascending or descending
+    let sortModifier = sortBy.ascending ? 1 : -1;
+
+    let sort = (a, b) =>
+      a[column] < b[column]
+        ? -1 * sortModifier
+        : a[column] > b[column]
+        ? 1 * sortModifier
+        : 0;
+
+    data = data.sort(sort);
+  };
 
 </script>
 
-<button on:click={prop}>Reload</button>
+<button on:click={sort}>Reload</button>
 
-{#await prop then data}
-  <table>
-    <thead>
+<table>
+  <thead>
+    <tr>
+      {#each Object.keys(data[0]) as head}
+        <th>{head}</th>
+      {/each}
+    </tr>
+  </thead>
+  <tbody>
+    {#each data as row, index}
       <tr>
-        {#each (Object.keys(data[0])) as head}
-          <th>{head}</th>
+        {#each Object.keys(data[0]) as col, index}
+          <td>{row[col]}</td>
         {/each}
       </tr>
-    </thead>
-    <tbody>
-      {#each data as row, index}
-        <tr>
-          {#each (Object.keys(data[0])) as col, index}
-            <td>{row[col]}</td>
-          {/each}
-        </tr>
-      {/each}
-    </tbody>
-  </table>
-{/await}
+    {/each}
+  </tbody>
+</table>
 
 <style>
   table {
@@ -36,7 +61,7 @@
     /* overflow: hidden; */
   }
 
-  tr:last-child td{
+  tr:last-child td {
     border-bottom: none;
   }
 
@@ -59,5 +84,4 @@
   th:last-child {
     border-right: none;
   }
-
 </style>
