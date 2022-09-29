@@ -25,5 +25,5 @@
 {/await} -->
 
 {#await getData() then}
-  <Table {data} />
+  <Table {data}/>
 {/await}

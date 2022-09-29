@@ -1,10 +1,13 @@
 <script>
   export let data;
+  export let search = true;
 
+  // declare some variables
   let things = JSON.parse(JSON.stringify(data));
   let input = "";
   let ascending = true;
 
+  // sort specific row
   function sortTable(col) {
     let sortMod = ascending ? 1 : -1;
 
@@ -15,15 +18,19 @@
     ascending = !ascending;
   }
 
-  function filterTable(word) {
+  // search through table
+  function searchTable(word) {
     data = things.filter( item => item.temp.toString().includes(word) || item.date.includes(word));
   }
 
-  $: filterTable(input)
+  $: searchTable(input)
 
 </script>
 
+{#if search }
 <input type=search bind:value={input} placeholder="Search" />
+{/if}
+
 
 <table>
   <thead>
