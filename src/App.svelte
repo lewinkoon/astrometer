@@ -1,5 +1,5 @@
 <script>
-  // import Table from "./lib/Table.svelte";
+  import Table from "./lib/Table.svelte";
   // import Grid from "./lib/Grid.svelte";
   import { supabase } from "./supabase";
 
@@ -11,8 +11,8 @@
     const { data: telemetry, error } = await supabase
       .from("telemetry")
       .select("*")
-      .order("id", { ascending: true })
-      .limit(20);
+      .order("id", { ascending: false })
+      .limit(15);
 
     data = telemetry;
 
@@ -22,8 +22,8 @@
 
 <!-- {#await getData() then}
   <Grid {data} />
-{/await}
+{/await} -->
 
 {#await getData() then}
   <Table {data} />
-{/await} -->
+{/await}
