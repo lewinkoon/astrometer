@@ -6,17 +6,17 @@
   let sortBy = "temp";
   let ascending = false;
 
-  function sort() {
+  function sort(col) {
     
     ascending = !ascending;
 
-    let sortModifier = ascending ? 1 : -1;
+    let sortMod = ascending ? 1 : -1;
 
     let xxx = (a, b) =>
-      a[sortBy] < b[sortBy]
-        ? -1 * sortModifier
-        : a[sortBy] > b[sortBy]
-        ? 1 * sortModifier
+      a[col] < b[col]
+        ? -1 * sortMod
+        : a[col] > b[col]
+        ? 1 * sortMod
         : 0;
 
     data = data.sort(xxx);
@@ -50,9 +50,9 @@
     width: 100%;
     margin: 2rem auto;
     border-spacing: 0;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border: 2px solid var(--medium);
+    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
     background-color: var(--lighter);
-    /* overflow: hidden; */
   }
 
   tr:last-child td {

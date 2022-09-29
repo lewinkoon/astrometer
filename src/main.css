@@ -1,8 +1,8 @@
 :root {
   --darker: #212529;
   --dark: #495057;
-  --light: #dee2e6;
   --medium: #adb5bd;
+  --light: #dee2e6;
   --lighter: #f8f9fa;
   --accent: #ef233c;
 
@@ -18,11 +18,15 @@ html {
   font-family: "Calibri";
   color: var(--darker);
   box-sizing: border-box;
-  background-color: var(--dark);
+  background-color: var(--lighter);
 }
 
 body {
   margin: 0 auto;
-  max-width: 480px;
+  max-width: 800px;
   padding: 1rem;
+}
+
+table {
+  width: 100%;
 }
