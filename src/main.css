@@ -22,9 +22,24 @@ html {
 }
 
 body {
+  margin: 1rem;
+}
+
+header {
+  border: thin solid var(--accent);
+  padding: 1rem;
+  color: var(--light);
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  margin: 0rem;
+}
+
+main {
   margin: 0 auto;
   max-width: 800px;
-  padding: 1rem;
+  /* padding: 1rem; */
 }
 
 table {

@@ -1,9 +1,8 @@
 <script>
   import Table from "./lib/Table.svelte";
-  // import Grid from "./lib/Grid.svelte";
+
   import { supabase } from "./supabase";
 
-  let sort = false;
   let data = [];
 
   // fetch data from database
@@ -12,7 +11,7 @@
       .from("telemetry")
       .select("*")
       .order("id", { ascending: false })
-      .limit(15);
+      // .limit(15);
 
     data = telemetry;
 

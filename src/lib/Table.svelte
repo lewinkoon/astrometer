@@ -1,6 +1,6 @@
 <script>
   export let data;
-  export let search = true;
+  export let search = false;
 
   // declare some variables
   let things = JSON.parse(JSON.stringify(data));
@@ -31,7 +31,6 @@
 <input type=search bind:value={input} placeholder="Search" />
 {/if}
 
-
 <table>
   <thead>
     <tr>
@@ -54,11 +53,9 @@
 <style>
   table {
     width: 100%;
-    margin: 2rem auto;
+    margin: 0rem auto;
     border-spacing: 0;
-    border-radius: 15px;
-    /* border: 2px solid var(--medium); */
-    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+    border-radius: 10px;
     background-color: #fff;
     color: var(--medium);
     overflow: hidden;
@@ -66,15 +63,6 @@
 
   tr:last-child td {
     border-bottom: none;
-  }
-
-  th {
-    text-align: left;
-    text-transform: uppercase;
-    font-weight: normal;
-    font-weight: bold;
-    color: var(--dark);
-    background-color: var(--lighter);
   }
 
   td,
@@ -86,6 +74,19 @@
   td:last-child,
   th:last-child {
     border-right: none;
+  }
+
+  th {
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-weight: bold;
+    color: var(--dark);
+    background-color: var(--lighter);
+  }
+
+  th:hover {
+    color: var(--accent);
   }
 
   input {
