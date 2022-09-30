@@ -18,30 +18,22 @@ html {
   font-family: "Calibri";
   color: var(--darker);
   box-sizing: border-box;
-  background-color: var(--dark);
+  background-color: var(--light);
 }
 
 body {
-  margin: 1rem;
+  max-width: 1080px;
+  margin: 1rem auto;
 }
 
 header {
-  border: thin solid var(--accent);
-  padding: 1rem;
-  color: var(--light);
-  margin-bottom: 2rem;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  background-color: var(--dark);
+  color: var(--lighter);
+  margin-bottom: 1rem;
 }
 
 header h1 {
   margin: 0rem;
-}
-
-main {
-  margin: 0 auto;
-  max-width: 800px;
-  /* padding: 1rem; */
-}
-
-table {
-  width: 100%;
 }

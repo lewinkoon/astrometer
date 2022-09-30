@@ -1,22 +1,20 @@
 <script>
   import { onMount } from "svelte";
-  import Chart from 'chart.js/auto';
-  
-  export let prop;
+  import Chart from "chart.js/auto";
+
+  export let data;
 
   let ctx;
 
-  onMount(async () => {
-
-    const data = await prop;
-    const chart = new Chart(ctx, {
+  onMount(() => {
+    new Chart(ctx, {
       type: "line",
       data: {
-        labels: Object.keys(data.things),
+        labels: data.map((e) => e.id),
         datasets: [
           {
             label: "Dataset",
-            data: data.things.map( (/** @type {{ temp: any; }} */ e) => e.temp )
+            data: data.map((e) => e.temp),
           },
         ],
       }
@@ -24,10 +22,18 @@
   });
 </script>
 
-<canvas id="chart" bind:this={ctx} />
+<div>
+  <canvas id="chart" bind:this={ctx} />
+</div>
 
 <style>
+  div {
+    padding: 1rem;
+    background-color: var(--medium);
+    border-radius: 10px;
+  }
+
   canvas {
-    margin-bottom: 1rem;
+    max-height: 240px;
   }
 </style>

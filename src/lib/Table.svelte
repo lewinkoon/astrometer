@@ -52,8 +52,7 @@
 
 <style>
   table {
-    width: 100%;
-    margin: 0rem auto;
+    /* width: 100%; */
     border-spacing: 0;
     border-radius: 10px;
     background-color: #fff;
@@ -68,6 +67,7 @@
   td,
   th {
     padding: 0.75rem 1.5rem;
+    border-right: thin solid var(--light);
     border-bottom: thin solid var(--light);
   }
 
@@ -86,7 +86,8 @@
   }
 
   th:hover {
-    color: var(--accent);
+    background-color: var(--medium);
+    cursor: pointer;
   }
 
   input {
