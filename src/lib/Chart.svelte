@@ -17,6 +17,9 @@
             data: data.map((e) => e.temp),
           },
         ],
+        options: {
+          maintainAspectRatio: false
+        }
       }
     });
   });
@@ -28,12 +31,10 @@
 
 <style>
   div {
-    padding: 1rem;
-    background-color: var(--medium);
+    padding: 2rem;
+    background-color: var(--lighter);
     border-radius: 10px;
+    flex-grow: 2;
   }
 
-  canvas {
-    max-height: 240px;
-  }
 </style>

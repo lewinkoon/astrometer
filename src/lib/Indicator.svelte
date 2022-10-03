@@ -7,7 +7,7 @@
     <span class="icon">{icon}</span>
     <div class="measure">
       <h2 class="variable">{title}</h2>
-      <p class="value">{value} {unit}</p>
+      <p class="value">{value}{unit}</p>
     </div>
   </div>
 </span>
@@ -17,13 +17,13 @@
     display: flex;
     justify-content: space-between;
     border-radius: 10px;
-    background-color: var(--medium);
-    padding: 2rem;
+    background-color: var(--lighter);
+    padding: 1.5rem;
   }
 
   span.icon {
-    font-size: 4rem;
-    margin-right: 2rem;
+    font-size: 3rem;
+    margin: auto 1.5rem auto 0;
   }
 
   div.measure {
@@ -31,13 +31,15 @@
   }
 
   h2.variable {
-    font-size: 2rem;
+    font-size: 1.25rem;
     margin: 0;
+    text-transform: uppercase;
+    color: var(--medium);
   }
 
   p.value {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
 </style>
