@@ -15,7 +15,7 @@
 }
 
 html {
-  font-family: "Calibri";
+  font-family: "consolas";
   color: var(--darker);
   box-sizing: border-box;
   background-color: var(--light);
