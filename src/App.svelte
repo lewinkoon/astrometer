@@ -1,7 +1,7 @@
 <script>
-  import Info from "./lib/Info.svelte";
-  import Chart from "./lib/Chart.svelte";
-  import Table from "./lib/Table.svelte";
+  import Indicator from "./lib/Indicator.svelte";
+  // import Chart from "./lib/Chart.svelte";
+  // import Table from "./lib/Table.svelte";
 
   import { supabase } from "./supabase";
 
@@ -22,16 +22,23 @@
 </script>
 
 <main>
-  {#await getData() then}
+  <div class="indicators">
+    <Indicator title={"Temperature"} value={21} unit={"ºC"} icon={"🌡️"} />
+    <Indicator title={"Humidity"} value={54} unit={"%"} icon={"💧"}/>
+    <Indicator title={"Pressure"} value={1001} unit={"hPa"} icon={"☁️"}/>
+  </div>
+  <!-- {#await getData() then}
     <Chart {data} />
     <Table {data} />
-  {/await}
+  {/await} -->
 </main>
 
 <style>
-  main {
+
+  div.indicators {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    justify-content: space-between;
+    gap: 1rem;
   }
+
 </style>
