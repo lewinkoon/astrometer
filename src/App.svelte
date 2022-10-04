@@ -46,6 +46,6 @@
   div.data {
     display: flex;
     justify-content: space-between;
-    gap: 2rem
+    gap: 2rem;
   }
 </style>

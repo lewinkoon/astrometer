@@ -9,12 +9,10 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@supabase/supabase-js": "^2.0.0-rc.10",
     "@sveltejs/vite-plugin-svelte": "^1.0.2",
+    "chart.js": "^3.9.1",
     "svelte": "^3.49.0",
     "vite": "^3.1.0"
-  },
-  "dependencies": {
-    "@supabase/supabase-js": "^2.0.0-rc.10",
-    "chart.js": "^3.9.1"
   }
 }
