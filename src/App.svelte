@@ -34,9 +34,11 @@
 </main>
 
 <style>
+
   div.indicators {
     display: flex;
     justify-content: space-between;
     margin-bottom: 2rem;
   }
+  
 </style>
