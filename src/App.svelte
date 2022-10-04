@@ -26,14 +26,11 @@
     <Indicator title={"Temperature"} value={21} unit={"ºC"} icon={"🌡️"} />
     <Indicator title={"Humidity"} value={54} unit={"%"} icon={"💧"} />
     <Indicator title={"Pressure"} value={1001} unit={"hPa"} icon={"💨"} />
-    <Indicator title={"Light"} value={84} unit={"%"} icon={"☀️"} />
   </div>
-  <div class="data">
-    {#await getData() then}
-      <Table {data} />
-      <Chart {data} />
-    {/await}
-  </div>
+  {#await getData() then}
+    <Chart {data} />
+    <Table {data} />
+  {/await}
 </main>
 
 <style>
@@ -41,11 +38,5 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 2rem;
-  }
-
-  div.data {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem
   }
 </style>

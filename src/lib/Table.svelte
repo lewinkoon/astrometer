@@ -52,7 +52,7 @@
 
 <style>
   table {
-    /* width: 100%; */
+    width: 100%;
     border-spacing: 0;
     border-radius: 10px;
     background-color: #fff;

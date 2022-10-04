@@ -18,7 +18,10 @@
           },
         ],
         options: {
-          maintainAspectRatio: false
+          maintainAspectRatio: true,
+          plugins: {
+            legend: { display: false}
+          }
         }
       }
     });
@@ -35,6 +38,11 @@
     background-color: var(--lighter);
     border-radius: 10px;
     flex-grow: 2;
+    margin-bottom: 2rem;
+  }
+
+  canvas {
+    max-height: 240px;
   }
 
 </style>
