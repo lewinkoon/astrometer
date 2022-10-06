@@ -4,7 +4,7 @@
   --medium: #adb5bd;
   --light: #dee2e6;
   --lighter: #f8f9fa;
-  --accent: #ef233c;
+  --accent: #3a86ff;
 
   --yellow: #ffbe0b;
   --orange: #fb5607;
@@ -16,27 +16,16 @@
 
 html {
   font-family: "Consolas";
-  color: var(--darker);
-  box-sizing: border-box;
-  background-color: var(--light);
+  
 }
 
 body {
-  max-width: 1080px;
-  margin: 2rem auto;
-}
-
-header {
-  border-radius: 10px;
-  padding: 1rem;
-  background-color: var(--medium);
-  color: var(--lighter);
-  margin-bottom: 2rem;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-header h1 {
-  font-size: 3rem;
-  margin: 0rem;
+  box-sizing: border-box;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 10rem auto;
+  grid-template-rows: auto;
+  /* gap: 20px; */
+  margin: 0;
+  /* padding: 20px; */
 }

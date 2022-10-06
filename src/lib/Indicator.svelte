@@ -21,7 +21,7 @@
   }
 
   div.title {
-    font-size: 2rem;
+    font-size: 1rem;
     text-transform: uppercase;
     background-color: var(--medium);
     padding: 0.5rem 1rem;
@@ -34,7 +34,7 @@
   }
 
   span.value {
-    font-size: 4rem;
+    font-size: 2rem;
   }
 
 </style>

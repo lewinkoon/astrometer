@@ -21,24 +21,72 @@
   }
 </script>
 
-<main>
-  <div class="indicators">
-    <Indicator title={"Temperature"} value={21} unit={"ºC"} icon={"🌡️"} />
-    <Indicator title={"Humidity"} value={54} unit={"%"} icon={"💧"} />
-    <Indicator title={"Pressure"} value={1001} unit={"hPa"} icon={"💨"} />
+<nav>
+  <div class="logo">
+    <a href="/">Home</a>
   </div>
-  {#await getData() then}
-    <Chart {data} />
-    <Table {data} />
-  {/await}
-</main>
+  <div class="sidebar">
+    <a href="/">Dashboard</a>
+    <a href="/">Datatable</a>
+    <a href="/">Config</a>
+  </div>
+</nav>
+
+<div class="page">
+  <header>Section</header>
+  <main>
+    <section class="indicators">
+      <Indicator title={"Temperature"} value={21} unit={"ºC"} icon={"🌡️"} />
+      <Indicator title={"Humidity"} value={54} unit={"%"} icon={"💧"} />
+      <Indicator title={"Pressure"} value={1001} unit={"hPa"} icon={"💨"} />
+    </section>
+    <!-- {#await getData() then}
+      <Chart {data} />
+      <Table {data} />
+    {/await} -->
+  </main>
+  <footer>2022</footer>
+</div>
 
 <style>
-
-  div.indicators {
+  nav {
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 2rem;
+    flex-direction: column;
+    border-right: 2px solid var(--accent);
   }
-  
+
+  nav div.logo {
+    padding: 1rem;
+    border-bottom: 2px solid var(--accent);
+  }
+
+  nav div.sidebar {
+    padding: 1rem;
+  }
+
+  div.page {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding: 1rem;
+  }
+
+  main {
+    padding: 0 1rem;
+    flex-grow: 2;
+  }
+
+  main section.indicators {
+    display: flex;
+    gap: 20px;
+  }
+
+  footer {
+    border-top: 2px solid var(--accent);
+    padding: 1rem;
+  }
 </style>
