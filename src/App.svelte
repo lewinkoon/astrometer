@@ -37,7 +37,7 @@
 
   div.indicators {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-bottom: 2rem;
   }
   

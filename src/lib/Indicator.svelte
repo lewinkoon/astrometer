@@ -4,10 +4,9 @@
 
 <span>
   <div class="indicator">
-    <span class="icon">{icon}</span>
+    <div class="title">{icon} {title}</div>
     <div class="measure">
-      <h2 class="variable">{title}</h2>
-      <p class="value">{value}{unit}</p>
+      <span class="value">{value} {unit}</span>
     </div>
   </div>
 </span>
@@ -15,31 +14,27 @@
 <style>
   div.indicator {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     border-radius: 10px;
     background-color: var(--lighter);
-    padding: 1.5rem;
+    overflow: hidden;
   }
 
-  span.icon {
-    font-size: 3rem;
-    margin: auto 1.5rem auto 0;
+  div.title {
+    font-size: 2rem;
+    text-transform: uppercase;
+    background-color: var(--medium);
+    padding: 0.5rem 1rem;
   }
 
   div.measure {
-    text-align: right;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 1rem;
   }
 
-  h2.variable {
-    font-size: 1.25rem;
-    margin: 0;
-    text-transform: uppercase;
-    color: var(--medium);
-  }
-
-  p.value {
-    margin: 0;
-    font-size: 2rem;
+  span.value {
+    font-size: 4rem;
   }
 
 </style>

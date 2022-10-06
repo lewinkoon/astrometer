@@ -30,11 +30,13 @@ header {
   border-radius: 10px;
   padding: 1rem;
   background-color: var(--medium);
-  color: var(--accent);
+  color: var(--lighter);
   margin-bottom: 2rem;
   text-transform: uppercase;
+  text-align: center;
 }
 
 header h1 {
+  font-size: 3rem;
   margin: 0rem;
 }
