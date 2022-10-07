@@ -14,18 +14,35 @@
 
 }
 
+@font-face {
+  font-family: regular;
+  src: url(fonts/Nunito.woff) format("woff");
+}
+
 html {
-  font-family: "Consolas";
-  
+  font-family: regular;
+
 }
 
 body {
   box-sizing: border-box;
   height: 100vh;
   display: grid;
-  grid-template-columns: 10rem auto;
+  grid-template-columns: 240px auto;
   grid-template-rows: auto;
   /* gap: 20px; */
   margin: 0;
   /* padding: 20px; */
+}
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--accent);
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
 }
