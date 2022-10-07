@@ -34,4 +34,5 @@
     font-size: 2rem;
     color: var(--accent)
   }
+  
 </style>

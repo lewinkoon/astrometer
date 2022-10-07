@@ -1,7 +1,10 @@
 <script>
+  import Navbar from "./basic/Navbar.svelte";
+  import Header from "./basic/Header.svelte";
+  import Footer from "./basic/Footer.svelte";
+
   import Indicator from "./lib/Indicator.svelte";
   import Chart from "./lib/Chart.svelte";
-  import Table from "./lib/Table.svelte";
 
   import { supabase } from "./supabase";
 
@@ -21,19 +24,11 @@
   }
 </script>
 
-<nav>
-  <div class="logo">
-    <a href="/">Home</a>
-  </div>
-  <div class="sidebar">
-    <a href="/">Dashboard</a>
-    <a href="/">Datatable</a>
-    <a href="/">Config</a>
-  </div>
-</nav>
+<Navbar />
 
 <div class="page">
-  <header>Dashboard</header>
+  <Header />
+
   <main>
     <section class="title">📈 Dashboard</section>
     <section class="indicators">
@@ -44,42 +39,19 @@
     </section>
     <section class="chart">
       {#await getData() then}
-      <Chart {data} />
-      <!-- <Table {data} /> -->
-    {/await}
+        <Chart {data} />
+        <!-- <Table {data} /> -->
+      {/await}
     </section>
-
   </main>
-  <footer>
-    <span>© 2021-2022 Lewin.</span>&nbsp;Diseñado con&nbsp;<a href="https://svelte.dev/">Svelte</a>
-  </footer>
+
+  <Footer />
 </div>
 
 <style>
-  nav {
-    display: flex;
-    flex-direction: column;
-    border-right: thin solid var(--light);
-  }
-
-  nav div.logo {
-    padding: 1rem;
-  }
-
-  nav div.sidebar {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-  }
-
   div.page {
     display: flex;
     flex-direction: column;
-  }
-
-  header {
-    border-bottom: thin solid var(--light);
-    padding: 1rem;
   }
 
   main {
@@ -110,15 +82,4 @@
     padding: 2rem;
     margin-bottom: 2rem;
   }
-
-  footer {
-    display: flex;
-    justify-content: center;
-    padding: 2rem;
-  }
-
-  footer span {
-    font-weight: bold;
-  }
-
 </style>
