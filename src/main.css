@@ -21,18 +21,30 @@
 
 html {
   font-family: regular;
-
 }
 
 body {
   box-sizing: border-box;
   height: 100vh;
   display: grid;
-  grid-template-columns: 240px auto;
+  grid-template-columns: 200px auto;
   grid-template-rows: auto;
-  /* gap: 20px; */
   margin: 0;
-  /* padding: 20px; */
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+button {
+  font-family: regular;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 0;
 }
 
 a {

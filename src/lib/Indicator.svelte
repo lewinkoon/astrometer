@@ -20,7 +20,7 @@
   div.title {
     font-size: 1.5rem;
     text-align: center;
-    padding: 1rem 2rem;
+    padding: 1rem 3rem;
     border-bottom: thin solid var(--light);
   }
 

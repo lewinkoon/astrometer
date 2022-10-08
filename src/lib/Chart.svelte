@@ -58,6 +58,6 @@
 
 <style>
   canvas {
-    max-height: 240px;
+    max-height: 160px;
   }
 </style>
