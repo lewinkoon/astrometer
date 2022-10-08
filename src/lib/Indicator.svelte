@@ -18,7 +18,8 @@
   }
 
   div.title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
     text-align: center;
     padding: 1rem 3rem;
     border-bottom: thin solid var(--light);

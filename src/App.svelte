@@ -69,7 +69,8 @@
     display: flex;
     flex-direction: column;
     flex-grow: 2;
-    width: 1080px;
+    max-width: 1080px;
+    width: 100%;
     margin: 4rem auto;
   }
 
@@ -105,8 +106,8 @@
 
   section.indicators div.component {
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
+    justify-content: space-around;
+    gap: 40px;
   }
 
   section.chart div.component {
