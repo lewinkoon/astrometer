@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: regular;
-  src: url(fonts/Nunito.woff) format("woff");
+  src: url(/fonts/Nunito.woff) format("woff");
 }
 
 html {
