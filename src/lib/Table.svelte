@@ -52,42 +52,44 @@
 
 <style>
   table {
+    table-layout: fixed;
     width: 100%;
+    border-collapse: separate;
+    color: var(--dark);
     border-spacing: 0;
-    border-radius: 10px;
-    background-color: #fff;
-    color: var(--medium);
+    border-radius: 20px;
     overflow: hidden;
-  }
-
-  tr:last-child td {
-    border-bottom: none;
+    border: thin solid var(--light);
   }
 
   td,
   th {
+    text-align: left;
     padding: 0.75rem 1.5rem;
-    border-right: thin solid var(--light);
     border-bottom: thin solid var(--light);
   }
 
-  td:last-child,
-  th:last-child {
-    border-right: none;
-  }
-
   th {
-    text-align: left;
-    text-transform: uppercase;
-    font-weight: normal;
+    text-transform: capitalize;
     font-weight: bold;
     color: var(--dark);
     background-color: var(--lighter);
+    
   }
 
-  th:hover {
-    background-color: var(--medium);
+  tr:hover {
+    /* color: var(--accent); */
+    font-weight: bold;
     cursor: pointer;
+    background-color: var(--lighter);
+  }
+
+  td:hover {
+    color: var(--accent);
+  }
+
+  tr:last-child td {
+    border: none;
   }
 
   input {

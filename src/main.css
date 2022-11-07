@@ -25,11 +25,12 @@ html {
 
 body {
   box-sizing: border-box;
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 200px auto;
-  grid-template-rows: auto;
-  margin: 0;
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+  max-width: 1080px;
+  width: 100%;
 }
 
 h2 {
@@ -48,13 +49,13 @@ button {
 }
 
 a {
-  font-weight: bold;
+  /* font-weight: bold; */
   text-decoration: none;
-  color: var(--accent);
+  color: var(--darker);
 }
 
-a:hover {
+/* a:hover {
   text-decoration: underline;
   text-underline-offset: 4px;
   text-decoration-thickness: 2px;
-}
+} */

@@ -5,6 +5,7 @@
 
   import Indicator from "./lib/Indicator.svelte";
   import Chart from "./lib/Chart.svelte";
+  import Table from "./lib/Table.svelte";
 
   import { supabase } from "./supabase";
 
@@ -14,9 +15,9 @@
   async function getData(dir) {
     const { data: telemetry, error } = await supabase
       .from("telemetry")
-      .select("*")
+      .select("date,temp,humid,press,light")
       .limit(10)
-      .order("id", { ascending: false });
+      .order("date", { ascending: true });
 
     data = telemetry;
 
@@ -24,22 +25,40 @@
   }
 </script>
 
-<Navbar />
+<Header />
 
-<div class="page">
-  <Header />
-
-  <main>
-    <section class="title">
-      <h2>📈 Dashboard</h2>
-      <p>Realtime data from the weather station</p>
-    </section>
+<main>
+  <section class="title">
+    <h2>📈 Dashboard</h2>
+    <p>Realtime data from the weather station</p>
+  </section>
+  {#await getData() then}
     <section class="indicators">
       <div class="component">
-        <Indicator title={"Temperature"} value={21} unit={"ºC"} icon={"🌡️"} />
-        <Indicator title={"Humidity"} value={54} unit={"%"} icon={"💧"} />
-        <Indicator title={"Pressure"} value={1001} unit={"hPa"} icon={"💨"} />
-        <Indicator title={"Light"} value={82} unit={"%"} icon={"☀️"} />
+        <Indicator
+          title={"Temperature"}
+          value={Math.trunc(data[data.length - 1].temp)}
+          unit={"ºC"}
+          icon={"🌡️"}
+        />
+        <Indicator
+          title={"Humidity"}
+          value={Math.trunc(data[data.length - 1].humid)}
+          unit={"%"}
+          icon={"💧"}
+        />
+        <Indicator
+          title={"Pressure"}
+          value={Math.trunc(data[data.length - 1].press)}
+          unit={"hPa"}
+          icon={"💨"}
+        />
+        <Indicator
+          title={"Light"}
+          value={data[data.length - 1].light}
+          unit={"%"}
+          icon={"☀️"}
+        />
       </div>
     </section>
     <section class="chart">
@@ -48,30 +67,39 @@
         <span class="line" />
       </div>
       <div class="component">
-        {#await getData() then}
-          <Chart {data} />
-          <!-- <Table {data} /> -->
-        {/await}
+        <Chart {data} />
+        <!-- <Table {data} /> -->
       </div>
     </section>
-  </main>
+    <section class="table">
+      <div class="title">
+        <h2>Data</h2>
+        <span class="line" />
+      </div>
+      <div class="component">
+        <Table {data} />
+        <!-- <Table {data} /> -->
+      </div>
+    </section>
+  {/await}
+</main>
 
-  <Footer />
-</div>
+<Footer />
 
 <style>
-  div.page {
-    display: flex;
-    flex-direction: column;
-  }
-
   main {
     display: flex;
     flex-direction: column;
     flex-grow: 2;
-    max-width: 1080px;
-    width: 100%;
-    margin: 4rem auto;
+    margin: 0rem auto;
+  }
+
+  section {
+    margin-bottom: 4rem;
+  }
+
+  section.title {
+    margin: 4rem 0 2rem;
   }
 
   section.title h2 {
@@ -100,13 +128,9 @@
     margin: auto 0rem auto 1rem;
   }
 
-  section.indicators {
-    margin-bottom: 4rem;
-  }
-
   section.indicators div.component {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     gap: 40px;
   }
 

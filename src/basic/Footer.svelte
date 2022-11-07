@@ -14,4 +14,15 @@
     footer span {
         font-weight: bold;
     }
+
+    a {
+        font-weight: bold;
+        color: var(--accent);
+    }
+
+    a:hover {
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 2px;
+    }
 </style>

@@ -25,6 +25,8 @@
 
   export let data;
 
+  // console.log(data);
+
   let ctx;
 
   onMount(() => {
