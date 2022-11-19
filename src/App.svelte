@@ -1,5 +1,4 @@
 <script>
-  import Navbar from "./basic/Navbar.svelte";
   import Header from "./basic/Header.svelte";
   import Footer from "./basic/Footer.svelte";
 
@@ -123,7 +122,7 @@
 
   span.line {
     flex-grow: 1;
-    border-bottom: 4px solid var(--accent);
+    border-bottom: 4px solid var(--blue);
     border-radius: 2px;
     margin: auto 0rem auto 1rem;
   }
@@ -135,9 +134,8 @@
   }
 
   section.chart div.component {
-    background-color: var(--lighter);
-    border: thin solid var(--light);
-    border-radius: 10px;
+    background-color: var(--mantle);
+    border-radius: 20px;
     padding: 2rem;
   }
 </style>

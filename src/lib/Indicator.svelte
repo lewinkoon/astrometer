@@ -1,38 +1,39 @@
 <script>
   export let title, value, unit, icon;
-
 </script>
 
 <span>
   <div class="indicator">
-    <div class="title">{icon} {title}</div>
-    <div class="value">{value} <span>{unit}</span></div>
+    <div class="title"> {title}</div>
+    <div>
+      {icon} {value}&nbsp;
+      <span class="unit">{unit}</span>
+    </div>
   </div>
 </span>
 
 <style>
   div.indicator {
-    border-radius: 10px;
-    border: thin solid var(--light);
-    background-color: var(--lighter);
+    padding: 1.2rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2.4rem;
+    border-radius: 20px;
+    background-color: var(--mantle);
   }
 
   div.title {
-    font-size: 1.6rem;
-    text-align: center;
-    padding: 1rem 3rem;
-    border-bottom: thin solid var(--light);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--subtext0);
   }
 
   div.value {
-    font-size: 3rem;
-    text-align: center;
-    padding: 1rem 1.5rem;
+    
   }
 
-  div.value span {
-    font-size: 2rem;
-    color: var(--accent)
+  span.unit {
+    color: var(--blue);
   }
-  
 </style>

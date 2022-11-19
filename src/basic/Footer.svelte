@@ -17,7 +17,7 @@
 
     a {
         font-weight: bold;
-        color: var(--accent);
+        color: var(--peach);
     }
 
     a:hover {

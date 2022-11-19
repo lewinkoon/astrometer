@@ -26,6 +26,9 @@
   export let data;
 
   // console.log(data);
+  Chart.defaults.font.family = 'regular';
+  Chart.defaults.borderColor = '#363a4f';
+  Chart.defaults.color = '#cad3f5';
 
   let ctx;
 
@@ -39,9 +42,9 @@
             label: "Dataset",
             data: data.map((e) => e.temp),
             tension: 0.3,
-            borderColor: "#3a86ff",
+            borderColor: "#8aadf4",
             pointRadius: 5,
-            pointBackgroundColor: "#f8f9fa",
+            pointBackgroundColor: "#24273a",
           },
         ],
       },
@@ -60,6 +63,6 @@
 
 <style>
   canvas {
-    max-height: 160px;
+    max-height: 200px;
   }
 </style>

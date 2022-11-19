@@ -45,7 +45,8 @@ html {
 
 body {
   box-sizing: border-box;
-  /* height: 100vh; */
+  background-color: var(--base);
+  color: var(--text);
   display: flex;
   flex-direction: column;
   margin: 1rem auto;
@@ -69,13 +70,6 @@ button {
 }
 
 a {
-  /* font-weight: bold; */
   text-decoration: none;
-  color: var(--darker);
+  color: var(--text);
 }
-
-/* a:hover {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 2px;
-} */
