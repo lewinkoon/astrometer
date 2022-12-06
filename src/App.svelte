@@ -2,11 +2,11 @@
   import Header from "./basic/Header.svelte";
   import Footer from "./basic/Footer.svelte";
 
+  import Intro from "./lib/Intro.svelte";
   import Indicator from "./lib/Indicator.svelte";
   import Timeline from "./lib/Timeline.svelte";
   import Datatable from "./lib/Datatable.svelte";
 
-  import Satellite from "./svg/Satellite.svelte";
   import Chart from "./svg/Chart.svelte";
   import Abacus from "./svg/Abacus.svelte";
 
@@ -40,38 +40,14 @@
 <Header />
 
 <main>
-  <section class="intro">
-    <h2>
-      <Satellite />
-      Welcome to&nbsp;<a href="/">Astrometer</a>
-    </h2>
-    <p>
-      Welcome to the astrometer dashboard. Here you'll find realtime data from
-      my weather station.
-    </p>
-  </section>
+  <Intro />
+
   {#await getData() then}
     <section class="indicators">
-      <Indicator
-        type={0}
-        bind:selected
-        value={Math.trunc(data[0].temp)}
-      />
-      <Indicator
-        type={1}
-        bind:selected
-        value={Math.trunc(data[0].humid)}
-      />
-      <Indicator
-        type={2}
-        bind:selected
-        value={Math.trunc(data[0].press)}
-      />
-      <Indicator
-        type={3}
-        bind:selected
-        value={Math.trunc(data[0].light)}
-      />
+      <Indicator type={0} bind:selected value={Math.trunc(data[0].temp)} />
+      <Indicator type={1} bind:selected value={Math.trunc(data[0].humid)} />
+      <Indicator type={2} bind:selected value={Math.trunc(data[0].press)} />
+      <Indicator type={3} bind:selected value={Math.trunc(data[0].light)} />
     </section>
 
     <section class="chart">
@@ -95,7 +71,6 @@
         <Datatable {data} />
       </div>
     </section>
-    
   {/await}
 </main>
 
@@ -107,45 +82,11 @@
     flex-direction: column;
     align-items: center;
   }
-  
+
   section {
     margin-bottom: 4rem;
     max-width: 1080px;
     width: 100%;
-  }
-
-  section.intro {
-    margin: 4rem 0 2rem;
-  }
-
-  section.intro h2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3rem;
-    margin: 0 0 1rem;
-  }
-
-  section.intro h2 a{
-    color: var(--blue);
-    transition: all 0.3s;
-  }
-
-  section.intro h2 a:hover{
-    color: var(--flamingo);
-  }
-
-  section.intro h2 :global(#satellite) {
-    width: 4.5rem;
-    height: auto;
-    margin-right: 0.5rem;
-  }
-
-  section.intro p {
-    max-width: 60%;
-    text-align: center;
-    font-size: 1.5rem;
-    margin: 0 auto 2rem;
   }
 
   div.title {
@@ -159,7 +100,6 @@
     display: flex;
     align-items: center;
   }
-
 
   div.title h2 :global(#chart) {
     width: 3rem;
