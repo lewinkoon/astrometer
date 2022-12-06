@@ -173,7 +173,7 @@
 
   select {
     font-family: regular;
-    padding: 0.2rem 0.4rem;
+    padding: 0.25rem 0.5rem;
     border-radius: 5px;
     border: none;
     background-color: var(--surface0);
