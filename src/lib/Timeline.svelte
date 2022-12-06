@@ -27,7 +27,7 @@
 
   // console.log(data);
   Chart.defaults.font.family = 'regular';
-  Chart.defaults.borderColor = '#363a4f';
+  Chart.defaults.borderColor = '#5b6078';
   Chart.defaults.color = '#cad3f5';
 
   let ctx;

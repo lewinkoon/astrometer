@@ -3,8 +3,12 @@
   import Footer from "./basic/Footer.svelte";
 
   import Indicator from "./lib/Indicator.svelte";
-  import Chart from "./lib/Chart.svelte";
-  import Table from "./lib/Table.svelte";
+  import Timeline from "./lib/Timeline.svelte";
+  import Datatable from "./lib/Datatable.svelte";
+
+  import Satellite from "./svg/Satellite.svelte";
+  import Chart from "./svg/Chart.svelte";
+  import Abacus from "./svg/Abacus.svelte";
 
   import { supabase } from "./supabase";
 
@@ -28,55 +32,41 @@
 
 <main>
   <section class="title">
-    <h2>📈 Dashboard</h2>
-    <p>Realtime data from the weather station</p>
+    <h2>
+      <Satellite />
+      Astrometer
+    </h2>
+    <p>
+      Welcome to the astrometer dashboard. Here you'll find realtime data from
+      my weather station.
+    </p>
   </section>
   {#await getData() then}
     <section class="indicators">
       <div class="component">
-        <Indicator
-          title={"Temperature"}
-          value={Math.trunc(data[data.length - 1].temp)}
-          unit={"ºC"}
-          icon={"🌡️"}
-        />
-        <Indicator
-          title={"Humidity"}
-          value={Math.trunc(data[data.length - 1].humid)}
-          unit={"%"}
-          icon={"💧"}
-        />
-        <Indicator
-          title={"Pressure"}
-          value={Math.trunc(data[data.length - 1].press)}
-          unit={"hPa"}
-          icon={"💨"}
-        />
-        <Indicator
-          title={"Light"}
-          value={data[data.length - 1].light}
-          unit={"%"}
-          icon={"☀️"}
-        />
+        <Indicator type={0} value={Math.trunc(data[data.length - 1].temp)} />
+        <Indicator type={1} value={Math.trunc(data[data.length - 1].humid)} />
+        <Indicator type={2} value={Math.trunc(data[data.length - 1].press)} />
+        <Indicator type={3} value={Math.trunc(data[data.length - 1].light)} />
       </div>
     </section>
     <section class="chart">
       <div class="title">
-        <h2>Chart</h2>
+        <h2><Chart />Timeline</h2>
         <span class="line" />
       </div>
       <div class="component">
-        <Chart {data} />
+        <Timeline {data} />
         <!-- <Table {data} /> -->
       </div>
     </section>
     <section class="table">
       <div class="title">
-        <h2>Data</h2>
+        <h2><Abacus />Data</h2>
         <span class="line" />
       </div>
       <div class="component">
-        <Table {data} />
+        <Datatable {data} />
         <!-- <Table {data} /> -->
       </div>
     </section>
@@ -102,15 +92,24 @@
   }
 
   section.title h2 {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 3rem;
     margin: 0 0 1rem;
   }
 
+  section.title h2 :global(#satellite) {
+    width: 4.5rem;
+    height: auto;
+    margin-right: 0.5rem;
+  }
+
   section.title p {
+    max-width: 60%;
     text-align: center;
     font-size: 1.5rem;
-    margin: 0 0 2rem;
+    margin: 0 auto 2rem;
   }
 
   div.title {
@@ -118,6 +117,23 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+  }
+
+  div.title h2 {
+    display: flex;
+    align-items: center;
+  }
+
+  div.title h2 :global(#chart) {
+    width: 3rem;
+    height: auto;
+    margin-right: 0.5rem;
+  }
+
+  div.title h2 :global(#abacus) {
+    width: 3rem;
+    height: auto;
+    margin-right: 0.5rem;
   }
 
   span.line {
@@ -134,7 +150,7 @@
   }
 
   section.chart div.component {
-    background-color: var(--mantle);
+    background-color: var(--surface0);
     border-radius: 20px;
     padding: 2rem;
   }

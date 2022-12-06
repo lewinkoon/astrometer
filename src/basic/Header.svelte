@@ -1,7 +1,12 @@
+<script>
+  import Satellite from "../svg/Satellite.svelte";
+  import Moon from "../svg/Moon.svelte";
+</script>
+
 <header>
-  <a href="/" class="title">📡 Weather Station</a>
+  <a href="/" class="title"><Satellite />Astrometer</a>
   <span class="line" />
-  <button class="reload">🌙</button>
+  <button class="reload"><Moon /></button>
 </header>
 
 <style>
@@ -12,17 +17,16 @@
   }
 
   a.title {
+    display: flex;
+    align-items: center;
     font-size: 1.2rem;
-    border: 2px solid var(--surface0);
+    background-color: var(--surface0);
     border-radius: 10px;
-    padding: 0.5rem 1rem;
-    margin: 0;
+    padding: 0.25rem 1rem 0.25rem 0.75rem;
   }
 
   a:hover {
-    font-weight: bold;
-    border: 2px solid var(--blue);
-    /* text-decoration: none; */
+    background-color: var(--surface1);
   }
 
   span.line {
@@ -35,4 +39,14 @@
   button {
     font-size: 1.2rem;
   }
+
+  :global(svg) {
+    width: 2rem;
+    height: auto;
+  }
+
+  :global(#satellite) {
+    margin-right: 0.5rem;
+  }
+  
 </style>

@@ -55,26 +55,24 @@
     table-layout: fixed;
     width: 100%;
     border-collapse: separate;
-    /* color: var(--dark); */
     border-spacing: 0;
     border-radius: 20px;
     overflow: hidden;
-    border: thin solid var(--surface0);
-    background-color: var(--mantle);
+    background-color: var(--surface0);
   }
 
   td,
   th {
     text-align: left;
     padding: 0.75rem 1.5rem;
-    border-bottom: thin solid var(--surface0);
+    border-bottom: thin solid var(--surface1);
   }
 
   th {
     text-transform: capitalize;
     font-weight: bold;
     /* color: var(--dark); */
-    background-color: var(--crust);
+    background-color: var(--surface1);
     
   }
 
@@ -82,7 +80,7 @@
     /* color: var(--accent); */
     font-weight: bold;
     cursor: pointer;
-    background-color: var(--surface0);
+    background-color: var(--surface2);
   }
 
   td:hover {
@@ -98,6 +96,5 @@
     padding: 0.5rem;
     border-radius: 5px;
     border: none;
-    /* background-color: var(--accent); */
   }
 </style>
