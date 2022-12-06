@@ -1,5 +1,5 @@
 <script>
-  export let type, value;
+  export let type, value, selected;
 
   import Thermo from "../svg/Thermo.svelte";
   import Drop from "../svg/Droplet.svelte";
@@ -15,26 +15,36 @@
 
 </script>
 
-<span>
-  <div class="indicator">
-    <div class="title">{options[type].title}</div>
-    <div class="content">
-      <svelte:component this="{options[type].component}"/>
-      <span class="value">{value}</span>
-      <span class="unit">{options[type].unit}</span>
-    </div>
+<button class="indicator" class:active="{selected === type}" on:click="{() => {selected = type}}">
+  <div class="title">{options[type].title}</div>
+  <div class="content">
+    <svelte:component this="{options[type].component}"/>
+    <span class="value">{value}</span>
+    <span class="unit">{options[type].unit}</span>
   </div>
-</span>
+</button>
 
 <style>
-  div.indicator {
-    padding: 1rem 2rem;
+  button.indicator {
+    padding: 0.5rem 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 2.4rem;
     border-radius: 20px;
+    border: 2px solid var(--surface0);
     background-color: var(--surface0);
+    color: var(--text);
+  }
+
+  button.indicator:hover {
+    border: 2px solid var(--surface1);
+    background-color: var(--surface1);
+  }
+
+  button.indicator.active{
+    border: 2px solid var(--blue);
+    /* background-color: var(--surface1); */
   }
 
   div.title {

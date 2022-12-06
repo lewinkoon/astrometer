@@ -1,5 +1,5 @@
 <script>
-  export let type, data;
+  export let type = 0, data;
 
   import { onMount } from "svelte";
   import {
@@ -60,15 +60,10 @@
             display: false,
           },
         },
+        maintainAspectRatio: false
       },
     });
   });
 </script>
 
 <canvas id="chart" bind:this={ctx} />
-
-<style>
-  canvas {
-    max-height: 200px;
-  }
-</style>

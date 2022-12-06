@@ -13,7 +13,10 @@
   header {
     display: flex;
     align-items: center;
+    margin: 0 auto;
     padding: 1rem;
+    max-width: 1080px;
+    width: 100%;
   }
 
   a.title {

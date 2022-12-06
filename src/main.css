@@ -41,17 +41,19 @@
 
 html {
   font-family: regular;
+  color: var(--text);
+  scrollbar-gutter: stable both-edges;
+  scroll-behavior: smooth;
+  background-color: var(--base);
+  box-sizing: border-box;
 }
 
 body {
-  box-sizing: border-box;
-  background-color: var(--base);
-  color: var(--text);
   display: flex;
   flex-direction: column;
-  margin: 1rem auto;
-  max-width: 1080px;
-  width: 100%;
+  align-items: center;
+  padding: 2rem;
+  margin: 0;
 }
 
 h2 {
@@ -72,4 +74,10 @@ button {
 a {
   text-decoration: none;
   color: var(--text);
+}
+
+@media screen and (max-width: 650px) {
+  html {
+    font-size: 10pt;
+  }
 }

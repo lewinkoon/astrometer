@@ -20,7 +20,7 @@
       .from("telemetry")
       .select("date,temp,humid,press,light")
       .limit(10)
-      .order("date", { ascending: true });
+      .order("date", { ascending: false });
 
     data = telemetry;
 
@@ -40,10 +40,10 @@
 <Header />
 
 <main>
-  <section class="title">
+  <section class="intro">
     <h2>
       <Satellite />
-      Astrometer
+      Welcome to&nbsp;<a href="/">Astrometer</a>
     </h2>
     <p>
       Welcome to the astrometer dashboard. Here you'll find realtime data from
@@ -52,31 +52,40 @@
   </section>
   {#await getData() then}
     <section class="indicators">
-      <div class="component">
-        <Indicator type={0} value={Math.trunc(data[data.length - 1].temp)} />
-        <Indicator type={1} value={Math.trunc(data[data.length - 1].humid)} />
-        <Indicator type={2} value={Math.trunc(data[data.length - 1].press)} />
-        <Indicator type={3} value={Math.trunc(data[data.length - 1].light)} />
-      </div>
+      <Indicator
+        type={0}
+        bind:selected
+        value={Math.trunc(data[0].temp)}
+      />
+      <Indicator
+        type={1}
+        bind:selected
+        value={Math.trunc(data[0].humid)}
+      />
+      <Indicator
+        type={2}
+        bind:selected
+        value={Math.trunc(data[0].press)}
+      />
+      <Indicator
+        type={3}
+        bind:selected
+        value={Math.trunc(data[0].light)}
+      />
     </section>
+
     <section class="chart">
       <div class="title">
-        <h2><Chart />Timeline</h2>
+        <h2><Chart />{options[selected].label}</h2>
         <span class="line" />
-        <select bind:value={selected}>
-          {#each options as option}
-            <option value={option.id}>
-              {option.label}
-            </option>
-          {/each}</select
-        >
       </div>
-      <div class="component">
+      <div class="wrapper">
         {#key selected}
           <Timeline type={selected} {data} />
         {/key}
       </div>
     </section>
+
     <section class="table">
       <div class="title">
         <h2><Abacus />Data</h2>
@@ -86,6 +95,7 @@
         <Datatable {data} />
       </div>
     </section>
+    
   {/await}
 </main>
 
@@ -95,19 +105,20 @@
   main {
     display: flex;
     flex-direction: column;
-    flex-grow: 2;
-    margin: 0rem auto;
+    align-items: center;
   }
-
+  
   section {
     margin-bottom: 4rem;
+    max-width: 1080px;
+    width: 100%;
   }
 
-  section.title {
+  section.intro {
     margin: 4rem 0 2rem;
   }
 
-  section.title h2 {
+  section.intro h2 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -115,13 +126,22 @@
     margin: 0 0 1rem;
   }
 
-  section.title h2 :global(#satellite) {
+  section.intro h2 a{
+    color: var(--blue);
+    transition: all 0.3s;
+  }
+
+  section.intro h2 a:hover{
+    color: var(--flamingo);
+  }
+
+  section.intro h2 :global(#satellite) {
     width: 4.5rem;
     height: auto;
     margin-right: 0.5rem;
   }
 
-  section.title p {
+  section.intro p {
     max-width: 60%;
     text-align: center;
     font-size: 1.5rem;
@@ -140,6 +160,7 @@
     align-items: center;
   }
 
+
   div.title h2 :global(#chart) {
     width: 3rem;
     height: auto;
@@ -156,28 +177,21 @@
     flex-grow: 1;
     border-bottom: 4px solid var(--blue);
     border-radius: 2px;
-    margin: auto 1rem auto 1rem;
+    margin: auto 0rem auto 1rem;
   }
 
-  section.indicators div.component {
+  section.indicators {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     gap: 40px;
   }
 
-  section.chart div.component {
+  section.chart div.wrapper {
+    height: 200px;
+    margin: 0 auto;
     background-color: var(--surface0);
     border-radius: 20px;
     padding: 2rem;
-  }
-
-  select {
-    font-family: regular;
-    padding: 0.25rem 0.5rem;
-    border-radius: 5px;
-    border: none;
-    background-color: var(--surface0);
-    color: var(--text);
-    outline: none;
   }
 </style>
