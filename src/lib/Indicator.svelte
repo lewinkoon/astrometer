@@ -11,25 +11,32 @@
     { title: "Humidity", unit: "%", component: Drop },
     { title: "Pressure", unit: "hPa", component: Dash },
     { title: "Light", unit: "%", component: Light },
-];
-
+  ];
 </script>
 
-<button class="indicator" class:active="{selected === type}" on:click="{() => {selected = type}}">
-  <div class="title">{options[type].title}</div>
+<button
+  class="indicator"
+  class:active={selected === type}
+  on:click={() => {
+    selected = type;
+  }}
+>
+  <svelte:component this={options[type].component} />
   <div class="content">
-    <svelte:component this="{options[type].component}"/>
-    <span class="value">{value}</span>
-    <span class="unit">{options[type].unit}</span>
+    <div class="title">{options[type].title}</div>
+    <span class="value">
+      {value}<span class="unit">{options[type].unit}</span>
+    </span>
   </div>
 </button>
 
 <style>
   button.indicator {
-    padding: 0.5rem 1.5rem;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+
     font-size: 2.4rem;
     border-radius: 20px;
     border: 2px solid var(--surface0);
@@ -42,21 +49,21 @@
     background-color: var(--surface1);
   }
 
-  button.indicator.active{
+  button.indicator.active {
     border: 2px solid var(--blue);
-    /* background-color: var(--surface1); */
-  }
-
-  div.title {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: var(--subtext0);
   }
 
   div.content {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     margin-right: 0.5rem;
+  }
+
+  div.title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--subtext0);
   }
 
   span.value {
@@ -68,7 +75,7 @@
   }
 
   :global(#thermo, #droplet, #dash, #light) {
-    width: 3rem;
+    width: 4rem;
     height: auto;
     margin-right: 0.5rem;
   }

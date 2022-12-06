@@ -121,10 +121,15 @@
   }
 
   section.indicators {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+
+  @media screen and (max-width: 1200px) {
+    section.indicators {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   section.chart div.wrapper {
