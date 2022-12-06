@@ -46,7 +46,7 @@
     <section class="indicators">
       <Indicator type={0} bind:selected value={Math.trunc(data[0].temp)} />
       <Indicator type={1} bind:selected value={Math.trunc(data[0].humid)} />
-      <Indicator type={2} bind:selected value={Math.trunc(data[0].press)} />
+      <Indicator type={2} bind:selected value={Math.trunc(data[0].press)-1000} />
       <Indicator type={3} bind:selected value={Math.trunc(data[0].light)} />
     </section>
 
@@ -123,7 +123,7 @@
   section.indicators {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    gap: 20px;
   }
 
   @media screen and (max-width: 1200px) {

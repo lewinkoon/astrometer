@@ -24,9 +24,9 @@
   <svelte:component this={options[type].component} />
   <div class="content">
     <div class="title">{options[type].title}</div>
-    <span class="value">
-      {value}<span class="unit">{options[type].unit}</span>
-    </span>
+    <div class="value">
+      {value}&nbsp;<span class="unit">{options[type].unit}</span>
+    </div>
   </div>
 </button>
 
@@ -35,7 +35,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem 1.5rem;
+    padding: 1rem 0;
 
     font-size: 2.4rem;
     border-radius: 20px;
@@ -66,16 +66,12 @@
     color: var(--subtext0);
   }
 
-  span.value {
-    margin-right: 0.5rem;
-  }
-
   span.unit {
     color: var(--blue);
   }
 
   :global(#thermo, #droplet, #dash, #light) {
-    width: 4rem;
+    width: 4.5rem;
     height: auto;
     margin-right: 0.5rem;
   }
