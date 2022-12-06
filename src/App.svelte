@@ -26,6 +26,15 @@
 
     return true;
   }
+
+  const options = [
+    { id: 0, label: "Temperature" },
+    { id: 1, label: "Humidity" },
+    { id: 2, label: "Pressure" },
+    { id: 3, label: "Light" },
+  ];
+
+  let selected = 0;
 </script>
 
 <Header />
@@ -54,10 +63,18 @@
       <div class="title">
         <h2><Chart />Timeline</h2>
         <span class="line" />
+        <select bind:value={selected}>
+          {#each options as option}
+            <option value={option.id}>
+              {option.label}
+            </option>
+          {/each}</select
+        >
       </div>
       <div class="component">
-        <Timeline {data} />
-        <!-- <Table {data} /> -->
+        {#key selected}
+          <Timeline type={selected} {data} />
+        {/key}
       </div>
     </section>
     <section class="table">
@@ -67,7 +84,6 @@
       </div>
       <div class="component">
         <Datatable {data} />
-        <!-- <Table {data} /> -->
       </div>
     </section>
   {/await}
@@ -140,7 +156,7 @@
     flex-grow: 1;
     border-bottom: 4px solid var(--blue);
     border-radius: 2px;
-    margin: auto 0rem auto 1rem;
+    margin: auto 1rem auto 1rem;
   }
 
   section.indicators div.component {
@@ -153,5 +169,15 @@
     background-color: var(--surface0);
     border-radius: 20px;
     padding: 2rem;
+  }
+
+  select {
+    font-family: regular;
+    padding: 0.2rem 0.4rem;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--surface0);
+    color: var(--text);
+    outline: none;
   }
 </style>

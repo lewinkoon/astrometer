@@ -1,4 +1,6 @@
 <script>
+  export let type, data;
+
   import { onMount } from "svelte";
   import {
     Chart,
@@ -23,13 +25,17 @@
     TimeSeriesScale
   );
 
-  export let data;
+  const options = [
+    { label: "Temperature", value: data.map((e) => e.temp) },
+    { label: "Humidity", value: data.map((e) => e.humid) },
+    { label: "Pressure", value: data.map((e) => e.press) },
+    { label: "Light", value: data.map((e) => e.light) }
+  ]
 
-  // console.log(data);
   Chart.defaults.font.family = 'regular';
   Chart.defaults.borderColor = '#5b6078';
   Chart.defaults.color = '#cad3f5';
-
+  
   let ctx;
 
   onMount(() => {
@@ -40,7 +46,7 @@
         datasets: [
           {
             label: "Dataset",
-            data: data.map((e) => e.temp),
+            data: options[type].value,
             tension: 0.3,
             borderColor: "#8aadf4",
             pointRadius: 5,
