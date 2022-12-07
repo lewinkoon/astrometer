@@ -1,5 +1,5 @@
 <script>
-  export let type = 0, data;
+  export let type, data;
 
   import { onMount } from "svelte";
   import {
@@ -26,16 +26,15 @@
   );
 
   const options = [
-    { label: "Temperature", value: data.map((e) => e.temp) },
-    { label: "Humidity", value: data.map((e) => e.humid) },
-    { label: "Pressure", value: data.map((e) => e.press) },
-    { label: "Light", value: data.map((e) => e.light) }
-  ]
+    { label: "Temperature", value: data.map((e) => e.temp), color: "#ed8796" },
+    { label: "Humidity", value: data.map((e) => e.humid), color: "#c6a0f6" },
+    { label: "Pressure", value: data.map((e) => e.press), color: "#a6da95" },
+  ];
 
-  Chart.defaults.font.family = 'regular';
-  Chart.defaults.borderColor = '#5b6078';
-  Chart.defaults.color = '#cad3f5';
-  
+  Chart.defaults.font.family = "regular";
+  Chart.defaults.borderColor = "#494d64";
+  Chart.defaults.color = "#cad3f5";
+
   let ctx;
 
   onMount(() => {
@@ -48,19 +47,27 @@
             label: "Dataset",
             data: options[type].value,
             tension: 0.3,
-            borderColor: "#8aadf4",
+            borderColor: options[type].color,
             pointRadius: 5,
             pointBackgroundColor: "#24273a",
           },
         ],
       },
       options: {
+        scales: {
+          y: {
+            title: {
+              display: true,
+              text: options[type].label,
+            },
+          },
+        },
         plugins: {
           legend: {
             display: false,
           },
         },
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
       },
     });
   });

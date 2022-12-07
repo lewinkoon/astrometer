@@ -1,26 +1,18 @@
 <script>
-  export let type, value, selected;
+  export let type, value;
 
   import Thermo from "../svg/Thermo.svelte";
   import Drop from "../svg/Droplet.svelte";
   import Dash from "../svg/Dash.svelte";
-  import Light from "../svg/Light.svelte";
 
   const options = [
     { title: "Temperature", unit: "ºC", component: Thermo },
     { title: "Humidity", unit: "%", component: Drop },
     { title: "Pressure", unit: "hPa", component: Dash },
-    { title: "Light", unit: "%", component: Light },
   ];
 </script>
 
-<button
-  class="indicator"
-  class:active={selected === type}
-  on:click={() => {
-    selected = type;
-  }}
->
+<div class="indicator">
   <svelte:component this={options[type].component} />
   <div class="content">
     <div class="title">{options[type].title}</div>
@@ -28,29 +20,20 @@
       {value}&nbsp;<span class="unit">{options[type].unit}</span>
     </div>
   </div>
-</button>
+</div>
 
 <style>
-  button.indicator {
+  div.indicator {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem 0;
+    padding: 1rem;
 
     font-size: 2.4rem;
     border-radius: 20px;
     border: 2px solid var(--surface0);
     background-color: var(--surface0);
     color: var(--text);
-  }
-
-  button.indicator:hover {
-    border: 2px solid var(--surface1);
-    background-color: var(--surface1);
-  }
-
-  button.indicator.active {
-    border: 2px solid var(--blue);
   }
 
   div.content {
@@ -73,6 +56,12 @@
   :global(#thermo, #droplet, #dash, #light) {
     width: 4.5rem;
     height: auto;
-    margin-right: 0.5rem;
+    margin-right: 1rem;
+  }
+
+  @media screen and (max-width: 850px) {
+    :global(#thermo, #droplet, #dash, #light) {
+      display: none;
+    }
   }
 </style>

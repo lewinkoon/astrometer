@@ -8,7 +8,7 @@
   import Datatable from "./lib/Datatable.svelte";
 
   import Chart from "./svg/Chart.svelte";
-  import Abacus from "./svg/Abacus.svelte";
+  import Code from "./svg/Code.svelte";
 
   import { supabase } from "./supabase";
 
@@ -18,7 +18,7 @@
   async function getData(dir) {
     const { data: telemetry, error } = await supabase
       .from("telemetry")
-      .select("date,temp,humid,press,light")
+      .select("date,temp,humid,press")
       .limit(10)
       .order("date", { ascending: false });
 
@@ -30,8 +30,7 @@
   const options = [
     { id: 0, label: "Temperature" },
     { id: 1, label: "Humidity" },
-    { id: 2, label: "Pressure" },
-    { id: 3, label: "Light" },
+    { id: 2, label: "Pressure" }
   ];
 
   let selected = 0;
@@ -44,27 +43,30 @@
 
   {#await getData() then}
     <section class="indicators">
-      <Indicator type={0} bind:selected value={Math.trunc(data[0].temp)} />
-      <Indicator type={1} bind:selected value={Math.trunc(data[0].humid)} />
-      <Indicator type={2} bind:selected value={Math.trunc(data[0].press)-1000} />
-      <Indicator type={3} bind:selected value={Math.trunc(data[0].light)} />
+      <Indicator type={0} value={Math.trunc(data[0].temp)} />
+      <Indicator type={1} value={Math.trunc(data[0].humid)} />
+      <Indicator type={2} value={Math.trunc(data[0].press)} />
     </section>
 
-    <section class="chart">
-      <div class="title">
-        <h2><Chart />{options[selected].label}</h2>
-        <span class="line" />
-      </div>
-      <div class="wrapper">
-        {#key selected}
-          <Timeline type={selected} {data} />
-        {/key}
-      </div>
-    </section>
+    
+      <section class="chart">
+        <div class="title">
+          <h2><Chart />Graphs</h2>
+          <span class="line" />
+        </div>
+        {#each options as item, index (item.id)}
+        <div class="wrapper">
+          {#key selected}
+            <Timeline type={item.id} {data} />
+          {/key}
+        </div>
+        {/each}
+      </section>
+    
 
     <section class="table">
       <div class="title">
-        <h2><Abacus />Data</h2>
+        <h2><Code />Data</h2>
         <span class="line" />
       </div>
       <div class="component">
@@ -84,7 +86,7 @@
   }
 
   section {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     max-width: 1080px;
     width: 100%;
   }
@@ -107,7 +109,7 @@
     margin-right: 0.5rem;
   }
 
-  div.title h2 :global(#abacus) {
+  div.title h2 :global(#code) {
     width: 3rem;
     height: auto;
     margin-right: 0.5rem;
@@ -122,19 +124,14 @@
 
   section.indicators {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-  }
-
-  @media screen and (max-width: 1200px) {
-    section.indicators {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 4rem;
   }
 
   section.chart div.wrapper {
-    height: 200px;
-    margin: 0 auto;
+    min-height: 200px;
+    margin: 0 auto 2rem;
     background-color: var(--surface0);
     border-radius: 20px;
     padding: 2rem;

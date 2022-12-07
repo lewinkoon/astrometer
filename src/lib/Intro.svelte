@@ -1,16 +1,25 @@
 <script>
     import Satellite from "../svg/Satellite.svelte";
+    import Github from "../svg/Github.svelte";
+    import Mastodon from "../svg/Mastodon.svelte";
+    import Rss from "../svg/Rss.svelte";
 </script>
 
 <section class="intro">
     <h2>
         <Satellite />
-        Welcome to&nbsp;<a href="/">Astrometer</a>
+        Welcome to&nbsp;<a href="https://github.com/lewinkoon/weather-station">Astrometer</a>
     </h2>
     <p>
         Here you'll find realtime data from my weather station which measures
         temperature, relative humidity, pressure and illuminance every minute.
     </p>
+
+    <div class="social">
+        <a href="https://github.com/lewinkoon" class="link"><Github />Github</a>
+        <a href="https://masto.ai/home" class="link"><Mastodon />Mastodon</a>
+        <a href="https://github.com/lewinkoon/weather-station/commits.atom" class="link"><Rss />Rss</a>
+    </div>
 </section>
 
 <style>
@@ -24,6 +33,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
         font-size: 3rem;
         margin: 0 0 1rem;
     }
@@ -48,5 +58,29 @@
         text-align: center;
         font-size: 1.5rem;
         margin: 0 auto 2rem;
+    }
+
+    div.social {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    div.social a {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        margin-bottom: 2rem;
+        border-radius: 10px;
+        background-color: var(--surface0);
+    }
+
+    div.social a:hover{
+        background-color: var(--surface1);
+    }
+
+    div.social a :global(svg) {
+        width: 2rem;
+        margin-right: 0.5rem;
     }
 </style>

@@ -56,7 +56,7 @@
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    border-radius: 20px;
+    border-radius: 10px;
     overflow: hidden;
     background-color: var(--surface0);
   }
@@ -64,7 +64,7 @@
   td,
   th {
     text-align: left;
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 0 0.75rem 1.5rem;
     border-bottom: thin solid var(--surface1);
   }
 
