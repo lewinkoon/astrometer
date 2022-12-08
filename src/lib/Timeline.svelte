@@ -11,8 +11,10 @@
     CategoryScale,
     LinearScale,
     TimeScale,
-    TimeSeriesScale,
+    TimeSeriesScale
   } from "chart.js";
+
+  import "chartjs-adapter-date-fns";
 
   Chart.register(
     ArcElement,
@@ -44,7 +46,7 @@
         labels: data.map((e) => e.date),
         datasets: [
           {
-            label: "Dataset",
+            label: options[type].label,
             data: options[type].value,
             tension: 0.3,
             borderColor: options[type].color,
@@ -61,10 +63,14 @@
               text: options[type].label,
             },
           },
-        },
-        plugins: {
-          legend: {
-            display: false,
+          x: {
+            type: "time",
+            time: {
+              unit: "day",
+              displayFormats: {
+                day: "eee d/M"
+              }
+            }
           },
         },
         maintainAspectRatio: false,

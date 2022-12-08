@@ -19,7 +19,7 @@
     const { data: telemetry, error } = await supabase
       .from("telemetry")
       .select("date,temp,humid,press")
-      .limit(10)
+      .limit(8)
       .order("date", { ascending: false });
 
     data = telemetry;
