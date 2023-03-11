@@ -4,19 +4,27 @@
 	>and&nbsp;<a id="netlify" href="https://www.netlify.com/">Netlify</a>
 </footer>
 
-<style>
+<style lang="scss">
 	footer {
 		display: flex;
 		justify-content: center;
-		padding: 2rem;
-	}
+		max-width: 1080px;
+		width: 100%;
+		margin: 2rem 0;
 
-	footer span {
-		font-weight: bold;
+		span {
+			font-weight: bold;
+		}
 	}
 
 	a {
 		font-weight: bold;
+
+		&:hover {
+			text-decoration: underline;
+			text-underline-offset: 4px;
+			text-decoration-thickness: 2px;
+		}
 	}
 
 	#netlify {
@@ -25,11 +33,5 @@
 
 	#svelte {
 		color: var(--red);
-	}
-
-	a:hover {
-		text-decoration: underline;
-		text-underline-offset: 4px;
-		text-decoration-thickness: 2px;
 	}
 </style>
