@@ -1,16 +1,19 @@
 <script lang="ts">
-	import '../app.css';
 	import type { PageData } from './$types';
 	import { invalidate, invalidateAll } from '$app/navigation';
 
-	export let data: PageData;
-	$: ({ bmp280 } = data);
-
 	import Intro from '$lib/Intro.svelte';
 	import Indicator from '$lib/Indicator.svelte';
+
+	export let data: PageData;
+	$: ({ bmp280 } = data);
 </script>
 
-<Intro />
+
+
+<section class="intro">
+	<Intro />
+</section>
 
 <section class="indicators">
 	<div class="title">
@@ -27,12 +30,11 @@
 
 <style lang="scss">
 	section {
-		margin-bottom: 4rem;
+		display: flex;
+		flex-direction: column;
 		max-width: 1080px;
 		width: 100%;
-	}
-
-	section.indicators {
+		margin-bottom: 2rem;
 		div.title {
 			display: flex;
 			align-items: center;
