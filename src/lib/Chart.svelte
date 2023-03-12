@@ -6,11 +6,13 @@
 	import {
 		Chart,
 		ArcElement,
+		Colors,
 		LineElement,
 		PointElement,
 		LineController,
 		CategoryScale,
 		LinearScale,
+		Tooltip,
 		TimeScale,
 		TimeSeriesScale,
 		Filler
@@ -19,14 +21,40 @@
 	Chart.register(
 		ArcElement,
 		LineElement,
+		Colors,
 		PointElement,
 		LineController,
 		CategoryScale,
 		LinearScale,
 		TimeScale,
 		TimeSeriesScale,
+		Tooltip,
 		Filler
 	);
+
+	interface Sensor {
+		[index: string]: {
+			label: string;
+			value: any;
+			color: string;
+			background: string;
+		};
+	}
+
+	const options: Sensor = {
+		temperature: {
+			label: 'Temperature',
+			value: value.map((e: any) => e.temperature),
+			color: '#ed8796',
+			background: '#ed879633'
+		},
+		pressure: {
+			label: 'Pressure',
+			value: value.map((e: any) => e.pressure),
+			color: '#a6da95',
+			background: '#a6da9533'
+		}
+	};
 
 	Chart.defaults.font.family = 'regular';
 	Chart.defaults.borderColor = '#494d64';
@@ -40,11 +68,11 @@
 				labels: value.map((e: any) => e.time),
 				datasets: [
 					{
-						label: type,
-						data: value.map((e: any) => e.temperature),
+						label: options[type].label,
+						data: options[type].value,
 						tension: 0.3,
-						// borderColor: options[type].color,
-						// backgroundColor: options[type].background,
+						borderColor: options[type].color,
+						backgroundColor: options[type].background,
 						fill: true,
 						pointRadius: 5,
 						pointBackgroundColor: '#24273a'
@@ -57,10 +85,10 @@
 					y: {
 						title: {
 							display: true,
-							text: type
+							text: options[type].label
 						},
 						ticks: {
-							precision: 2
+							precision: 1
 						}
 					},
 					x: {
@@ -75,6 +103,9 @@
 								day: 'eee d/M',
 								second: 'hh:ss'
 							}
+						},
+						grid: {
+							display: false
 						}
 					}
 				},
@@ -89,14 +120,7 @@
 </div>
 
 <style>
-	div.wrapper {
-		padding: 2rem;
-		background-color: var(--surface0);
-		border: thin solid var(--surface1);
-		border-radius: 10px;
-	}
-
 	div.wrapper canvas {
-		min-width: 420px;
+		min-width: 400px;
 	}
 </style>
