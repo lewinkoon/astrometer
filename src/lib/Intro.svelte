@@ -16,7 +16,7 @@
 
 <div class="links">
 	<a href="/charts" class="init"><Rocket />&nbsp;Get started</a>
-	<a href="https://t.me/astrometerbot"><Telegram />&nbsp;Telegram</a>
+	<a href="https://t.me/astrometerbot" class="bot"><Telegram />&nbsp;Telegram</a>
 </div>
 
 <style lang="scss">
@@ -67,10 +67,11 @@
 			font-size: 1.2rem;
 			display: flex;
 			align-items: center;
-		}
 
-		a.init {
-			border: thin solid var(--blue);
+			&.init {
+				border: thin solid var(--blue);
+			}
+
 			&:hover {
 				border: thin solid var(--red);
 			}
