@@ -15,7 +15,7 @@
 </p>
 
 <div class="links">
-	<a href="/charts" class="init"><Rocket />&nbsp;Get started</a>
+	<a href="/dashboard" class="init"><Rocket />&nbsp;Get started</a>
 	<a href="https://t.me/astrometerbot" class="bot"><Telegram />&nbsp;Telegram</a>
 </div>
 
@@ -74,6 +74,7 @@
 
 			&:hover {
 				border: thin solid var(--red);
+				font-weight: bold;
 			}
 		}
 	}
