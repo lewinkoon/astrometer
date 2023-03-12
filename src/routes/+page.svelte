@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { invalidate, invalidateAll } from '$app/navigation';
+	import { invalidateAll } from '$app/navigation';
 
 	import Intro from '$lib/Intro.svelte';
 	import Indicator from '$lib/Indicator.svelte';
@@ -8,8 +8,6 @@
 	export let data: PageData;
 	$: ({ bmp280 } = data);
 </script>
-
-
 
 <section class="intro">
 	<Intro />
@@ -34,7 +32,7 @@
 		flex-direction: column;
 		max-width: 1080px;
 		width: 100%;
-		margin-bottom: 2rem;
+		margin-bottom: 4rem;
 		div.title {
 			display: flex;
 			align-items: center;
