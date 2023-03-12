@@ -5,7 +5,7 @@ export const load = (async () => {
 	const { data } = await supabase
 		.from('bmp280')
 		.select('time,temperature,pressure')
-		.limit(15)
+		.limit(20)
 		.order('time', { ascending: false });
 
 	return {
