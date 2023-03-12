@@ -21,7 +21,6 @@
 		<div class="header">
 			<h2>{param}</h2>
 			<span class="line" />
-			<button on:click={() => invalidateAll()}>Update</button>
 		</div>
 		{#key bmp280}
 			<Chart type={param.toLowerCase()} value={bmp280} />
@@ -58,7 +57,7 @@
 		}
 
 		&.chart {
-			padding: 1.2rem 1.6rem;
+			padding: 1.6rem;
 			background-color: var(--surface0);
 			border: thin solid var(--surface1);
 			border-radius: 10px;
