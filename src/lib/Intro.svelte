@@ -8,6 +8,7 @@
 	<h1>Astro<span>meter</span>&nbsp;</h1>
 	<Satellite />
 </a>
+
 <p>
 	Realtime data from my weather station which measures
 	<span style="color: var(--red)">temperature</span> and
@@ -49,7 +50,7 @@
 	p {
 		max-width: 60%;
 		text-align: center;
-		font-size: 1.5rem;
+		font-size: 1.6rem;
 		margin: 0 0 2rem;
 		align-self: center;
 	}
