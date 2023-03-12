@@ -42,7 +42,6 @@
 			h1 {
 				font-size: 3.2rem;
 				font-weight: normal;
-				margin: 0 0 1rem;
 				display: flex;
 				align-items: center;
 

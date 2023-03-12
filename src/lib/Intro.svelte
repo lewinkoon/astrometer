@@ -28,7 +28,6 @@
 		flex-wrap: wrap;
 
 		h1 {
-			margin: 1rem 0;
 			font-size: 4.5rem;
 
 			&:hover span {
@@ -43,7 +42,6 @@
 
 		:global(#satellite) {
 			width: 4.5rem;
-			height: auto;
 		}
 	}
 
