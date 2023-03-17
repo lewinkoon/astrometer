@@ -77,19 +77,6 @@
 					margin: auto 1rem auto 1rem;
 				}
 
-				button {
-					padding: 0.4rem 0.8rem;
-					font-size: 1rem;
-					color: var(--text);
-					border-radius: 12px;
-					border: thin solid var(--surface2);
-					background-color: var(--surface1);
-
-					&:hover {
-						border: thin solid var(--red);
-						font-weight: bold;
-					}
-				}
 			}
 		}
 	}

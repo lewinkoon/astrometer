@@ -193,3 +193,15 @@ em {
 	color: var(--green);
 	font-style: italic;
 }
+
+@media (max-width: 720px) {
+	:root {
+		font-size: 10pt;
+	}
+}
+
+@media (max-width: 480px) {
+	:root {
+		font-size: 9pt;
+	}
+}

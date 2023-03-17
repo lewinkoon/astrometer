@@ -69,5 +69,11 @@
 			grid-template-columns: repeat(3, auto);
 			gap: 2rem;
 		}
+
+		@media (max-width: 1080px) {
+			div.content {
+				grid-template-columns: repeat(1, auto);
+			}
+		}
 	}
 </style>
