@@ -72,8 +72,7 @@
 			}
 
 			&:hover {
-				border: thin solid var(--red);
-				font-weight: bold;
+				background-color: var(--surface1);
 			}
 		}
 	}
