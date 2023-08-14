@@ -1,11 +1,10 @@
 <script lang="ts">
 	import type { PageData } from '../dashboard/$types';
-	import { invalidateAll } from '$app/navigation';
 	import Chart from '$lib/Chart.svelte';
 	import Graph from '$lib/icons/Graph.svelte';
 
 	export let data: PageData;
-	$: ({ bmp280 } = data);
+	const bmp280 = data.data;
 </script>
 
 <section class="info">
@@ -76,7 +75,6 @@
 					border-radius: 2px;
 					margin: auto 1rem auto 1rem;
 				}
-
 			}
 		}
 	}
