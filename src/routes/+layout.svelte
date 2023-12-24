@@ -117,9 +117,5 @@
 		:root {
 			font-size: 8pt;
 		}
-
-		span.time {
-			display: none;
-		}
 	}
 </style>
