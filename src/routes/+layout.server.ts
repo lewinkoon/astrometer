@@ -3,9 +3,9 @@ import { supabase } from '$lib/supabase';
 
 export const load = (async () => {
 	const res = await supabase
-		.from('bmp280')
-		.select('time,temperature,pressure')
-		.limit(20)
+		.from('demo')
+		.select('*')
+		.limit(30)
 		.order('time', { ascending: false });
 
 	return res;

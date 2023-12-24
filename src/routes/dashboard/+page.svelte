@@ -44,7 +44,7 @@
 				display: flex;
 				align-items: center;
 
-				& :global(#graph) {
+				& #graph {
 					width: 4rem;
 				}
 			}

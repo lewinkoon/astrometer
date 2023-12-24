@@ -107,6 +107,12 @@
 		}
 	}
 
+	@media (max-width: 600px) {
+		:root {
+			font-size: 9pt;
+		}
+	}
+
 	@media (max-width: 480px) {
 		:root {
 			font-size: 9pt;

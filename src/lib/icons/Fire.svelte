@@ -1,4 +1,4 @@
-<svg id="fire" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<svg id="measurement" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
 	<g id="color">
 		<path
 			fill="#FCEA2B"

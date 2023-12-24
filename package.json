@@ -23,8 +23,11 @@
 	"type": "module",
 	"dependencies": {
 		"@supabase/supabase-js": "^2.39.1",
+		"@threlte/core": "^7.0.12",
+		"@threlte/extras": "^8.1.0",
 		"chart.js": "^4.4.1",
 		"chartjs-adapter-date-fns": "^3.0.0",
-		"date-fns": "^3.0.6"
+		"date-fns": "^3.0.6",
+		"three": "^0.160.0"
 	}
 }

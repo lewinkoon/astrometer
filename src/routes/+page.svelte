@@ -1,44 +1,49 @@
 <script lang="ts">
-	import type { PageData } from './$types';
+	import type { PageData } from "./$types";
+	import { Canvas } from "@threlte/core";
 
-	import Intro from '$lib/Intro.svelte';
-	import Indicator from '$lib/Indicator.svelte';
+	import Intro from "$lib/Intro.svelte";
+	import Model from "$lib/Model.svelte";
+	import Indicator from "$lib/Indicator.svelte";
 
 	export let data: PageData;
 
-	const now = data.data?.shift();
+	const now = data.data![0];
 	const d = new Date(now?.time);
 
 	const months: { [id: string]: string } = {
-		0: 'January',
-		1: 'February',
-		2: 'March',
-		3: 'April',
-		4: 'May',
-		5: 'June',
-		6: 'July',
-		7: 'August',
-		8: 'September',
-		9: 'October',
-		10: 'November',
-		11: 'December'
+		0: "January",
+		1: "February",
+		2: "March",
+		3: "April",
+		4: "May",
+		5: "June",
+		6: "July",
+		7: "August",
+		8: "September",
+		9: "October",
+		10: "November",
+		11: "December",
 	};
 
+	const week = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+	const weekday = week[d.getDay()];
 	const year = d.getFullYear();
 	const month = months[d.getMonth()];
 	const day = d.getDate();
 
-	let date = `${day} ${month} ${year}`;
+	let date = `${weekday} ${day} ${month} ${year}`;
 	let time = new Date(now?.time).toLocaleTimeString();
 	let temp = now?.temperature;
+	let humidity = now?.humidity;
 	let pressure = now?.pressure;
+	let luminance = now?.luminance;
+	let orientation = now?.orientation;
+	let acceleration = now?.acceleration;
 
-	console.log(date);
+	console.log(data.data);
 </script>
-
-<section>
-	
-</section>
 
 <section class="intro">
 	<Intro />
@@ -46,22 +51,33 @@
 
 <section class="indicators">
 	<div class="title">
-		<h2>Last measurement</h2>
+		<h2>{date}</h2>
 		<span class="line" />
-		<span class="date">{date}</span>
+		<span class="time">{time}</span>
 	</div>
 	<div class="content">
-		<Indicator type={'time'} value={time} />
-		<Indicator type={'temperature'} value={temp} />
-		<Indicator type={'pressure'} value={pressure} />
+		<!-- <Indicator type={"time"} value={time} /> -->
+		<Indicator type={"temperature"} value={temp} />
+		<Indicator type={"humidity"} value={humidity} />
+		<Indicator type={"pressure"} value={pressure} />
+		<Indicator type={"luminance"} value={luminance} />
+		<Indicator type={"orientation"} value={orientation} />
+		<Indicator type={"acceleration"} value={acceleration} />
 	</div>
 </section>
 
+<section class="model">
+	<Canvas>
+		<Model />
+	</Canvas>
+</section>
+
 <style>
-	@media (max-width: 1080px) {
-		div.content {
-			grid-template-columns: repeat(1, auto);
-		}
+	section.model {
+		max-height: 480px;
+		border: thin solid var(--surface0);
+		background-color: var(--mantle);
+		border-radius: 10px;
 	}
 
 	div.title {
@@ -72,21 +88,21 @@
 
 	div.title h2 {
 		font-size: 2rem;
+		/* font-weight: bold; */
+		color: var(--green);
+		margin-right: 1rem;
 	}
 
 	div.title span.line {
 		flex-grow: 1;
-		border-bottom: 4px solid var(--blue);
-		border-radius: 2px;
-		margin: auto 1rem auto 1rem;
+		border-bottom: 2px solid var(--lavender);
+		border-radius: thin;
 	}
 
-	div.title span.date {
-		font-size: 1.2rem;
-		padding: 0.4rem 0.8rem;
+	div.title span.time {
+		font-size: 2rem;
 		border-radius: 10px;
-		border: thin solid var(--surface1);
-		background-color: var(--surface0);
+		margin-left: 1rem;
 	}
 
 	div.content {
@@ -94,5 +110,17 @@
 		display: grid;
 		grid-template-columns: repeat(3, auto);
 		gap: 2rem;
+	}
+
+	@media (max-width: 1020px) {
+		div.content {
+			grid-template-columns: repeat(2, auto);
+		}
+	}
+
+	@media (max-width: 600px) {
+		div.content {
+			grid-template-columns: repeat(1, auto);
+		}
 	}
 </style>

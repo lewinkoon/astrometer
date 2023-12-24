@@ -4,7 +4,11 @@
 
 	import Time from '$lib/icons/Stopwatch.svelte';
 	import Fire from '$lib/icons/Fire.svelte';
+	import Droplet from '$lib/icons/Droplet.svelte';
 	import Cloud from '$lib/icons/Cloud.svelte';
+	import Light from '$lib/icons/Light.svelte';
+	import Compass from '$lib/icons/Compass.svelte';
+	import Rocket from '$lib/icons/Rocket.svelte';
 
 	interface Parameters {
 		[index: string]: {
@@ -25,10 +29,30 @@
 			unit: 'ºC',
 			component: Fire
 		},
+		humidity: {
+			title: 'Humidity',
+			unit: '%',
+			component: Droplet
+		},
 		pressure: {
 			title: 'Pressure',
 			unit: 'hPa',
 			component: Cloud
+		},
+		luminance: {
+			title: 'Luminance',
+			unit: 'lm',
+			component: Light
+		},
+		orientation: {
+			title: 'Orientation',
+			unit: 'º',
+			component: Compass
+		},
+		acceleration: {
+			title: 'Acceleration',
+			unit: 'm/s2',
+			component: Rocket
 		}
 	};
 </script>
@@ -72,15 +96,9 @@
 		color: var(--blue);
 	}
 
-	:global(#fire, #cloud, #stopwatch) {
+	:global(#measurement) {
 		width: 4.5rem;
 		height: auto;
 		margin-right: 1rem;
-	}
-
-	@media screen and (max-width: 850px) {
-		:global(#thermo, #droplet, #dash, #light) {
-			display: none;
-		}
 	}
 </style>

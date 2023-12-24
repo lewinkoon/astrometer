@@ -1,6 +1,6 @@
 <script>
 	import Satellite from "$lib/icons/Satellite.svelte";
-	import Rocket from "$lib/icons/Rocket.svelte";
+	import Graph from "$lib/icons/Graph.svelte";
 	import Telegram from "$lib/icons/Telegram.svelte";
 </script>
 
@@ -16,7 +16,7 @@
 </p>
 
 <div class="links">
-	<a href="/dashboard" class="init"><Rocket />&nbsp;Get started</a>
+	<a href="/dashboard" class="init"><Graph />&nbsp;Dashboard</a>
 	<a href="https://t.me/astrometerbot" class="bot"
 		><Telegram />&nbsp;Telegram</a
 	>
@@ -44,7 +44,7 @@
 			transition: color 0.3s ease-in-out;
 		}
 
-		& :global(#satellite) {
+		& #satellite {
 			width: 4.5rem;
 		}
 	}
