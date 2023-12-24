@@ -4,44 +4,41 @@
 </script>
 
 <header>
-	<a href="/" class="title"><Satellite />Astro<span>meter</span></a>
+	<a href="/" class="title"><Satellite />astro<span>meter</span></a>
 	<span class="line" />
 	<a href="https://github.com/lewinkoon"><Github /></a>
 </header>
 
-<style>
+<style lang="scss">
 	header {
 		display: flex;
 		align-items: baseline;
-		padding: 1rem;
+		gap: 2rem;
 		max-width: 1080px;
 		width: 100%;
-		margin-bottom: 2rem;
+		margin-bottom: 4rem;
 	}
 
 	a.title {
 		display: flex;
 		align-items: center;
 		font-size: 1.6rem;
-		/* background-color: var(--surface0); */
-		border-radius: 10px;
-	}
 
-	a.title span {
-		font-weight: bold;
-		color: var(--blue);
-		transition: color 0.25s ease-in-out;
-	}
+		span {
+			color: var(--blue);
+			transition: color 0.25s ease-in-out;
+		}
 
-	a.title:hover span {
-		color: var(--red);
+		&:hover span{
+			color: var(--blue);
+		}
 	}
 
 	span.line {
 		flex-grow: 1;
 		border-bottom: 2px solid var(--surface0);
 		border-radius: 1px;
-		margin: auto 1rem auto 1rem;
+		margin: auto 0;
 	}
 
 	:global(svg) {

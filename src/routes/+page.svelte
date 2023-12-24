@@ -36,6 +36,10 @@
 	console.log(date);
 </script>
 
+<section>
+	
+</section>
+
 <section class="intro">
 	<Intro />
 </section>
@@ -54,14 +58,6 @@
 </section>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		max-width: 1080px;
-		width: 100%;
-		margin-bottom: 4rem;
-	}
-
 	@media (max-width: 1080px) {
 		div.content {
 			grid-template-columns: repeat(1, auto);
