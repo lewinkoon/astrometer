@@ -115,7 +115,11 @@
 
 	@media (max-width: 480px) {
 		:root {
-			font-size: 9pt;
+			font-size: 8pt;
+		}
+
+		span.time {
+			display: none;
 		}
 	}
 </style>

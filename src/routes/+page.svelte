@@ -12,29 +12,26 @@
 	const d = new Date(now?.time);
 
 	const months: { [id: string]: string } = {
-		0: "January",
-		1: "February",
-		2: "March",
-		3: "April",
+		0: "Jan",
+		1: "Feb",
+		2: "Mar",
+		3: "Apr",
 		4: "May",
-		5: "June",
-		6: "July",
-		7: "August",
-		8: "September",
-		9: "October",
-		10: "November",
-		11: "December",
+		5: "Jun",
+		6: "Jul",
+		7: "Aug",
+		8: "Sep",
+		9: "Oct",
+		10: "Nov",
+		11: "Dec",
 	};
 
-	const week = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-
-	const weekday = week[d.getDay()];
 	const year = d.getFullYear();
 	const month = months[d.getMonth()];
 	const day = d.getDate();
 
-	let date = `${weekday} ${day} ${month} ${year}`;
-	let time = new Date(now?.time).toLocaleTimeString();
+	let date = `${day} ${month} ${year}`;
+	let time = new Date(now?.time).toLocaleTimeString().slice(0, 5);
 	let temp = now?.temperature;
 	let humidity = now?.humidity;
 	let pressure = now?.pressure;
@@ -123,4 +120,5 @@
 			grid-template-columns: repeat(1, auto);
 		}
 	}
+
 </style>
