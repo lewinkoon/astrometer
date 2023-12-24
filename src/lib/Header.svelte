@@ -1,6 +1,6 @@
 <script>
-	import Satellite from '$lib/icons/Satellite.svelte';
-	import Github from '$lib/icons/Github.svelte';
+	import Satellite from "$lib/icons/Satellite.svelte";
+	import Github from "$lib/icons/Github.svelte";
 </script>
 
 <header>
@@ -9,7 +9,7 @@
 	<a href="https://github.com/lewinkoon"><Github /></a>
 </header>
 
-<style lang="scss">
+<style>
 	header {
 		display: flex;
 		align-items: baseline;
@@ -24,13 +24,15 @@
 		align-items: center;
 		font-size: 1.6rem;
 
-		span {
+		& span {
 			color: var(--blue);
 			transition: color 0.25s ease-in-out;
 		}
 
-		&:hover span{
-			color: var(--blue);
+		&:hover {
+			& span {
+				color: var(--red);
+			}
 		}
 	}
 

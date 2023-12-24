@@ -1,10 +1,11 @@
 <footer>
-	<span>© 2023 Lewin.</span>&nbsp;Made with&nbsp;<a id="svelte" href="https://svelte.dev/"
-		>Svelte&nbsp;</a
-	>and&nbsp;<a id="netlify" href="https://www.netlify.com/">Netlify</a>
+	<span>© 2023 Lewin.</span>
+	&nbsp;Made with&nbsp;
+	<a id="svelte" href="https://svelte.dev/">Svelte</a>&nbsp;and&nbsp;
+	<a id="netlify" href="https://www.netlify.com/">Netlify</a>
 </footer>
 
-<style lang="scss">
+<style>
 	footer {
 		display: flex;
 		justify-content: center;
@@ -12,7 +13,7 @@
 		width: 100%;
 		margin: 2rem 0;
 
-		span {
+		& span {
 			font-weight: bold;
 		}
 	}

@@ -27,7 +27,7 @@
 	</section>
 {/each}
 
-<style lang="scss">
+<style>
 	section {
 		display: flex;
 		flex-direction: column;
@@ -38,18 +38,18 @@
 		&.info {
 			align-items: center;
 
-			h1 {
+			& h1 {
 				font-size: 3.2rem;
 				font-weight: normal;
 				display: flex;
 				align-items: center;
 
-				:global(#graph) {
+				& :global(#graph) {
 					width: 4rem;
 				}
 			}
 
-			p {
+			& p {
 				font-size: 1.6rem;
 			}
 		}
@@ -60,16 +60,16 @@
 			border: thin solid var(--surface1);
 			border-radius: 10px;
 
-			div.header {
+			& div.header {
 				display: flex;
 				align-items: center;
 				margin-bottom: 1.2rem;
 
-				h2 {
+				& h2 {
 					font-size: 1.4rem;
 				}
 
-				span.line {
+				& span.line {
 					flex-grow: 1;
 					border-bottom: 4px solid var(--blue);
 					border-radius: 2px;

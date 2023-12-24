@@ -1,7 +1,7 @@
 <script>
-	import Satellite from '$lib/icons/Satellite.svelte';
-	import Rocket from '$lib/icons/Rocket.svelte';
-	import Telegram from '$lib/icons/Telegram.svelte';
+	import Satellite from "$lib/icons/Satellite.svelte";
+	import Rocket from "$lib/icons/Rocket.svelte";
+	import Telegram from "$lib/icons/Telegram.svelte";
 </script>
 
 <a href="/" class="title">
@@ -17,30 +17,34 @@
 
 <div class="links">
 	<a href="/dashboard" class="init"><Rocket />&nbsp;Get started</a>
-	<a href="https://t.me/astrometerbot" class="bot"><Telegram />&nbsp;Telegram</a>
+	<a href="https://t.me/astrometerbot" class="bot"
+		><Telegram />&nbsp;Telegram</a
+	>
 </div>
 
-<style lang="scss">
+<style>
 	a.title {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-wrap: wrap;
 
-		h1 {
+		& h1 {
 			font-size: 4.5rem;
 
-			&:hover span {
-				color: var(--red);
+			&:hover {
+				& span {
+					color: var(--red);
+				}
 			}
 		}
 
-		span {
+		& span {
 			color: var(--blue);
 			transition: color 0.3s ease-in-out;
 		}
 
-		:global(#satellite) {
+		& :global(#satellite) {
 			width: 4.5rem;
 		}
 	}
@@ -58,7 +62,7 @@
 		justify-content: center;
 		gap: 1rem;
 
-		a {
+		& a {
 			padding: 0.5rem 1rem;
 			background-color: var(--surface0);
 			border-radius: 12px;
