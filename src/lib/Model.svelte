@@ -17,7 +17,7 @@
     <slot name="fallback" />
   {:then gltf}
     <Float
-      floatIntensity={[0,1,0]}
+      floatIntensity={[0, 1, 0]}
       rotationIntensity={[0, 0, 1]}
       rotationSpeed={4}
       speed={2}
@@ -54,8 +54,17 @@
       </T.Group>
     </Float>
     <T.AmbientLight intensity={0.3} />
-    <T.PerspectiveCamera makeDefault position={[1.8,1.6,2.8]}>
-      <OrbitControls enabled={false}/>
+    <T.PerspectiveCamera makeDefault position={[1.8, 1.6, 2.8]}>
+      <OrbitControls
+        enabled={true}
+        enableDamping={true}
+        dampingFactor={0.1}
+        rotateSpeed={0.08}
+        enablePan={false}
+        enableZoom={false}
+        maxPolarAngle={1}
+        minPolarAngle={1}
+      />
     </T.PerspectiveCamera>
     <T.DirectionalLight position={[1, 3, 2]} intensity={Math.PI} />
   {:catch error}

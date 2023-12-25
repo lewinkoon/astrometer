@@ -77,7 +77,7 @@
 		flex-direction: column;
 		max-width: 1080px;
 		width: 100%;
-		margin-bottom: 4rem;
+		margin-bottom: 2rem;
 	}
 
 	:global(h1, h2, h3, h4, h5, h6) {

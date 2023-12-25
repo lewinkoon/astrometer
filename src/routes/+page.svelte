@@ -74,6 +74,8 @@
 		/* border: thin solid var(--surface0); */
 		/* background-color: var(--mantle); */
 		border-radius: 10px;
+		max-height: 360px;
+		/* margin: 0; */
 	}
 
 	div.title {
