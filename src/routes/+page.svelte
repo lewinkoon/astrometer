@@ -53,9 +53,9 @@
 
 <section class="indicators">
 	<div class="title">
-		<h2>{date}</h2>
+		<h2>Last updated</h2>
 		<span class="line" />
-		<!-- <span class="time">{time}</span> -->
+		<span class="date">{date}</span>
 	</div>
 	<div class="content">
 		<!-- <Indicator type={"time"} value={time} /> -->
@@ -99,11 +99,11 @@
 		border-radius: thin;
 	}
 
-	/* div.title span.time {
-		font-size: 2rem;
+	div.title span.date {
+		font-size: 1.6rem;
 		border-radius: 10px;
 		margin-left: 1rem;
-	} */
+	}
 
 	div.content {
 		border-radius: 10px;
