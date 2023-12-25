@@ -17,12 +17,12 @@
     <slot name="fallback" />
   {:then gltf}
     <Float
-      floatIntensity={[0, 1, 0]}
+      floatIntensity={[0, 0.5, 0]}
       rotationIntensity={[0, 0, 1]}
       rotationSpeed={4}
-      speed={2}
+      speed={6}
     >
-      <T.Group position.y={1}>
+      <T.Group position.y={0.8}>
         <T.Mesh
           geometry={gltf.nodes.Cube005.geometry}
           material={gltf.materials.Mat0}
@@ -54,7 +54,7 @@
       </T.Group>
     </Float>
     <T.AmbientLight intensity={0.3} />
-    <T.PerspectiveCamera makeDefault position={[1.8, 1.6, 2.8]}>
+    <T.PerspectiveCamera makeDefault position={[2.5, 0, 2.5]}>
       <OrbitControls
         enabled={true}
         enableDamping={true}

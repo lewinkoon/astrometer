@@ -11,7 +11,7 @@
 		justify-content: center;
 		max-width: 1080px;
 		width: 100%;
-		margin: 0 0 2 rem;
+		margin: 2rem 0 2rem;
 
 		& span {
 			font-weight: bold;
