@@ -51,7 +51,7 @@
 		},
 		acceleration: {
 			title: 'Acceleration',
-			unit: 'm/s2',
+			unit: 'g',
 			component: Rocket
 		}
 	};

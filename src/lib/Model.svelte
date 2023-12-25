@@ -1,7 +1,7 @@
 <script>
-  import { Group } from "three";
+  import { Group, OrthographicCamera, PerspectiveCamera } from "three";
   import { T, forwardEventHandlers } from "@threlte/core";
-  import { useGltf, Grid, OrbitControls } from "@threlte/extras";
+  import { useGltf, Grid, OrbitControls, Float } from "@threlte/extras";
 
   export const ref = new Group();
 
@@ -16,39 +16,46 @@
   {#await gltf}
     <slot name="fallback" />
   {:then gltf}
-    <T.Group position.y={1}>
-      <T.Mesh
-        geometry={gltf.nodes.Cube005.geometry}
-        material={gltf.materials.Mat0}
-      />
-      <T.Mesh
-        geometry={gltf.nodes.Cube005_1.geometry}
-        material={gltf.materials.Mat1}
-      />
-      <T.Mesh
-        geometry={gltf.nodes.Cube005_2.geometry}
-        material={gltf.materials.Mat2}
-      />
-      <T.Mesh
-        geometry={gltf.nodes.Cube005_3.geometry}
-        material={gltf.materials.Window_Frame}
-      />
-      <T.Mesh
-        geometry={gltf.nodes.Cube005_4.geometry}
-        material={gltf.materials.Mat4}
-      />
-      <T.Mesh
-        geometry={gltf.nodes.Cube005_5.geometry}
-        material={gltf.materials.Mat3}
-      />
-      <T.Mesh
-        geometry={gltf.nodes.Cube005_6.geometry}
-        material={gltf.materials.Window}
-      />
-    </T.Group>
+    <Float
+      floatIntensity={[0,1,0]}
+      rotationIntensity={[0, 0, 1]}
+      rotationSpeed={4}
+      speed={2}
+    >
+      <T.Group position.y={1}>
+        <T.Mesh
+          geometry={gltf.nodes.Cube005.geometry}
+          material={gltf.materials.Mat0}
+        />
+        <T.Mesh
+          geometry={gltf.nodes.Cube005_1.geometry}
+          material={gltf.materials.Mat1}
+        />
+        <T.Mesh
+          geometry={gltf.nodes.Cube005_2.geometry}
+          material={gltf.materials.Mat2}
+        />
+        <T.Mesh
+          geometry={gltf.nodes.Cube005_3.geometry}
+          material={gltf.materials.Window_Frame}
+        />
+        <T.Mesh
+          geometry={gltf.nodes.Cube005_4.geometry}
+          material={gltf.materials.Mat4}
+        />
+        <T.Mesh
+          geometry={gltf.nodes.Cube005_5.geometry}
+          material={gltf.materials.Mat3}
+        />
+        <T.Mesh
+          geometry={gltf.nodes.Cube005_6.geometry}
+          material={gltf.materials.Window}
+        />
+      </T.Group>
+    </Float>
     <T.AmbientLight intensity={0.3} />
-    <T.PerspectiveCamera makeDefault position={[2, 2, 3]}>
-      <OrbitControls />
+    <T.PerspectiveCamera makeDefault position={[1.8,1.6,2.8]}>
+      <OrbitControls enabled={false}/>
     </T.PerspectiveCamera>
     <T.DirectionalLight position={[1, 3, 2]} intensity={Math.PI} />
   {:catch error}

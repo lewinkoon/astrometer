@@ -31,6 +31,7 @@
 
 		& h1 {
 			font-size: 4.5rem;
+			/* font-weight: bold; */
 
 			&:hover {
 				& span {
@@ -53,7 +54,7 @@
 		max-width: 60%;
 		text-align: center;
 		font-size: 1.6rem;
-		margin: 0 0 2rem;
+		margin: 0 auto 2rem;
 		align-self: center;
 	}
 

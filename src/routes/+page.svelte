@@ -44,13 +44,18 @@
 
 <section class="intro">
 	<Intro />
+	<div id="model">
+		<Canvas>
+			<Geometry />
+		</Canvas>
+	</div>
 </section>
 
 <section class="indicators">
 	<div class="title">
 		<h2>{date}</h2>
 		<span class="line" />
-		<span class="time">{time}</span>
+		<!-- <span class="time">{time}</span> -->
 	</div>
 	<div class="content">
 		<!-- <Indicator type={"time"} value={time} /> -->
@@ -63,18 +68,16 @@
 	</div>
 </section>
 
-<section class="model">
-	<Canvas>
-		<Geometry />
-	</Canvas>
-</section>
-
 <style>
-	section.model {
-		max-height: 480px;
-		border: thin solid var(--surface0);
-		background-color: var(--mantle);
-		border-radius: 10px;
+	section.intro {
+		margin-bottom: 0;
+		& div#model {
+			height: 480px;
+			/* border: thin solid var(--surface0); */
+			/* background-color: var(--mantle); */
+			border-radius: 10px;
+			margin-top: 1rem;
+		}
 	}
 
 	div.title {
@@ -96,11 +99,11 @@
 		border-radius: thin;
 	}
 
-	div.title span.time {
+	/* div.title span.time {
 		font-size: 2rem;
 		border-radius: 10px;
 		margin-left: 1rem;
-	}
+	} */
 
 	div.content {
 		border-radius: 10px;
@@ -120,5 +123,4 @@
 			grid-template-columns: repeat(1, auto);
 		}
 	}
-
 </style>
