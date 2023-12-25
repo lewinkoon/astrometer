@@ -1,24 +1,59 @@
-<script lang="ts">
-    import { T } from "@threlte/core";
-    import { Grid, OrbitControls, interactivity } from "@threlte/extras";
+<script>
+  import { Group } from "three";
+  import { T, forwardEventHandlers } from "@threlte/core";
+  import { useGltf, Grid, OrbitControls } from "@threlte/extras";
 
-    interactivity();
+  export const ref = new Group();
+
+  const gltf = useGltf("/model.glb", {
+    useDraco: true,
+  });
+
+  const component = forwardEventHandlers();
 </script>
 
-<T.PerspectiveCamera
-    makeDefault
-    position={[8, 8, 8]}
->
-    <OrbitControls />
-</T.PerspectiveCamera>
+<T is={ref} dispose={false} {...$$restProps} bind:this={$component}>
+  {#await gltf}
+    <slot name="fallback" />
+  {:then gltf}
+    <T.Group position.y={1}>
+      <T.Mesh
+        geometry={gltf.nodes.Cube005.geometry}
+        material={gltf.materials.Mat0}
+      />
+      <T.Mesh
+        geometry={gltf.nodes.Cube005_1.geometry}
+        material={gltf.materials.Mat1}
+      />
+      <T.Mesh
+        geometry={gltf.nodes.Cube005_2.geometry}
+        material={gltf.materials.Mat2}
+      />
+      <T.Mesh
+        geometry={gltf.nodes.Cube005_3.geometry}
+        material={gltf.materials.Window_Frame}
+      />
+      <T.Mesh
+        geometry={gltf.nodes.Cube005_4.geometry}
+        material={gltf.materials.Mat4}
+      />
+      <T.Mesh
+        geometry={gltf.nodes.Cube005_5.geometry}
+        material={gltf.materials.Mat3}
+      />
+      <T.Mesh
+        geometry={gltf.nodes.Cube005_6.geometry}
+        material={gltf.materials.Window}
+      />
+    </T.Group>
+    <T.AmbientLight intensity={0.3} />
+    <T.PerspectiveCamera makeDefault position={[2, 2, 3]}>
+      <OrbitControls />
+    </T.PerspectiveCamera>
+    <T.DirectionalLight position={[1, 3, 2]} intensity={Math.PI} />
+  {:catch error}
+    <slot name="error" {error} />
+  {/await}
 
-<T.DirectionalLight position={[3, 10, 7]} intensity={Math.PI} />
-
-<T.AmbientLight intensity={0.3} />
-
-<T.Mesh position.y={2}>
-    <T.SphereGeometry args={[2]} />
-    <T.MeshStandardMaterial color="#8caaee" toneMapped={false} />
-</T.Mesh>
-
-<Grid cellColor="#737994" sectionColor="#838ba7" />
+  <slot {ref} />
+</T>
