@@ -49,7 +49,7 @@
 	}
 
 	p {
-		max-width: 60%;
+		max-width: 80%;
 		text-align: center;
 		font-size: 1.6rem;
 		margin: 0 auto 2rem;
