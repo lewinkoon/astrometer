@@ -10,9 +10,7 @@
 </a>
 
 <p>
-	Realtime data from my weather station which measures
-	<span style="color: var(--red)">temperature</span> and
-	<span style="color: var(--green)">pressure</span> every minute.
+	Realtime <span style="color: var(--green)">data</span> from my <span style="color: var(--red)">weather station</span> every minute.
 </p>
 
 <div class="links">

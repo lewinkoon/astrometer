@@ -44,11 +44,12 @@
 
 <section class="intro">
 	<Intro />
-	<div id="model">
-		<Canvas>
-			<Geometry />
-		</Canvas>
-	</div>
+</section>
+
+<section class="model">
+	<Canvas>
+		<Geometry />
+	</Canvas>
 </section>
 
 <section class="indicators">
@@ -69,15 +70,10 @@
 </section>
 
 <style>
-	section.intro {
-		margin-bottom: 0;
-		& div#model {
-			height: 480px;
-			/* border: thin solid var(--surface0); */
-			/* background-color: var(--mantle); */
-			border-radius: 10px;
-			margin-top: 1rem;
-		}
+	section.model {
+		/* border: thin solid var(--surface0); */
+		/* background-color: var(--mantle); */
+		border-radius: 10px;
 	}
 
 	div.title {
