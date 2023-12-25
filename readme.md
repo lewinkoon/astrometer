@@ -4,6 +4,12 @@ Realtime data from my weather station
 
 <img width="1470" alt="Screenshot" src="https://github.com/lewinkoon/astrometer/assets/57636993/07db16d0-b339-4754-8eb1-497a8202f682">
 
+## To-Do's
+
+- [ ] Load real rover model
+- [ ] Add geolocation map
+- [ ] Link domain to blog subdomain
+
 ## Usage
 
 Clone the repository.
