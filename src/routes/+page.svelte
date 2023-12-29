@@ -3,7 +3,7 @@
 	import { Canvas } from "@threlte/core";
 
 	import Intro from "$lib/Intro.svelte";
-	import Geometry from "../lib/Model.svelte";
+	import Scene from "../lib/Scene.svelte";
 	import Indicator from "$lib/Indicator.svelte";
 
 	export let data: PageData;
@@ -48,7 +48,7 @@
 
 <section class="model">
 	<Canvas>
-		<Geometry />
+		<Scene />
 	</Canvas>
 </section>
 
