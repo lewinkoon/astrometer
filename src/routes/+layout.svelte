@@ -42,6 +42,11 @@
 		src: url(/fonts/Nunito.ttf) format("truetype");
 	}
 
+	@font-face {
+		font-family: mono;
+		src: url(/fonts/JetBrainsMono.ttf) format("truetype");
+	}
+
 	* {
 		box-sizing: border-box;
 	}

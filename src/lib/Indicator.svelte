@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let type: string;
-	export let value: string;
+	export let value: number;
 
 	import Time from "$lib/icons/Stopwatch.svelte";
 	import Fire from "$lib/icons/Fire.svelte";
@@ -94,7 +94,7 @@
 	}
 
 	span.unit {
-		color: var(--yellow);
+		color: var(--blue);
 	}
 
 	:global(#measurement) {
