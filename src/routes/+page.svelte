@@ -1,9 +1,7 @@
 <script lang="ts">
 	import type { PageData } from "./$types";
-	import { Canvas } from "@threlte/core";
 
 	import Intro from "$lib/Intro.svelte";
-	import Scene from "../lib/Scene.svelte";
 	import Indicator from "$lib/Indicator.svelte";
 
 	export let data: PageData;
@@ -46,12 +44,6 @@
 	<Intro />
 </section>
 
-<section class="model">
-	<Canvas>
-		<Scene />
-	</Canvas>
-</section>
-
 <section class="indicators">
 	<div class="title">
 		<h2>Last updated</h2>
@@ -70,11 +62,6 @@
 </section>
 
 <style>
-	section.model {
-		border-radius: 10px;
-		max-height: 360px;
-	}
-
 	div.title {
 		display: flex;
 		align-items: center;
