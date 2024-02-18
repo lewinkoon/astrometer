@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-	<title>Astrometer</title>
+	<title>astrometer</title>
 </svelte:head>
 
 <Header />
