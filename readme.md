@@ -1,16 +1,8 @@
 # Astrometer 🛰️
 
-Realtime data from my weather station
+> Weather data **logger** based on a ESP32 microcontroller.
 
-<img width="1470" alt="Screenshot" src="https://github.com/lewinkoon/astrometer/assets/57636993/07db16d0-b339-4754-8eb1-497a8202f682">
-
-## To-Do's
-
-- [ ] Load real rover model
-- [ ] Add geolocation map
-- [ ] Link domain to blog subdomain
-
-## Usage
+## Setup
 
 Clone the repository.
 
@@ -30,13 +22,13 @@ echo "PUBLIC_SUPABASE_URL=[DATABASE URL]" >> .env
 Run local server for development
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Or build the app
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 ## Contributing
