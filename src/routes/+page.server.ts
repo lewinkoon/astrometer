@@ -24,7 +24,7 @@ export const load = (async () => {
 		.from('fake')
 		.select('*')
 		.limit(1)
-		.order('timestamp', { ascending: false });
+		.order('timestamp', { ascending: true });
 
 	const data: LastUpdate = {
 		date: formatDate(res.data![0].timestamp),
