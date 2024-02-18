@@ -36,8 +36,6 @@
 	let luminance = now?.luminance;
 	let orientation = now?.orientation;
 	let acceleration = now?.acceleration;
-
-	console.log(data.data);
 </script>
 
 <section class="intro">
