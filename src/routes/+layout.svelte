@@ -77,9 +77,8 @@
 		color: var(--text);
 	}
 
-	:global(em) {
+	:global(strong) {
 		color: var(--yellow);
-		font-style: italic;
 	}
 
 	@media (max-width: 720px) {

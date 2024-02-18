@@ -1,6 +1,7 @@
 <script>
 	import Satellite from "$lib/icons/Satellite.svelte";
 	import Graph from "$lib/icons/Graph.svelte";
+	import Files from "$lib/icons/Files.svelte";
 	import Telegram from "$lib/icons/Telegram.svelte";
 </script>
 
@@ -9,16 +10,12 @@
 	<Satellite />
 </a>
 
-<p>
-	Realtime <span style="color: var(--yellow)">data</span> from my
-	<span style="color: var(--yellow)">weather station</span> every minute.
-</p>
+<p>Weather data <strong>logger</strong> based on a ESP32 microcontroller</p>
 
 <div class="links">
-	<a href="/dashboard" class="init"><Graph />&nbsp;Dashboard</a>
-	<a href="https://t.me/astrometerbot" class="bot"
-		><Telegram />&nbsp;Telegram</a
-	>
+	<a href="/dashboard" class="init"><Graph />&nbsp;Board</a>
+	<a href="/docs" class="init"><Files />&nbsp;Docs</a>
+	<a href="https://t.me/astrometerbot" class="bot"><Telegram />&nbsp;Bot</a>
 </div>
 
 <style>
