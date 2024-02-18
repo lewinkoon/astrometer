@@ -10,7 +10,7 @@ Clone the repository.
 git clone https://github.com/lewinkoon/astrometer
 ```
 
-Set environment variables
+Set environment variables.
 
 ```bash
 cd astrometer
@@ -19,13 +19,13 @@ echo "PUBLIC_SUPABASE_ANON_KEY=[ANONYMOUS KEY]" >> .env
 echo "PUBLIC_SUPABASE_URL=[DATABASE URL]" >> .env
 ```
 
-Run local server for development
+Run local server for development.
 
 ```bash
 pnpm run dev
 ```
 
-Or build the app
+Or build the app.
 
 ```bash
 pnpm run build
