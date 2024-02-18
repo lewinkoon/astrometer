@@ -2,13 +2,13 @@
 	export let type: string;
 	export let value: string;
 
-	import Time from '$lib/icons/Stopwatch.svelte';
-	import Fire from '$lib/icons/Fire.svelte';
-	import Droplet from '$lib/icons/Droplet.svelte';
-	import Cloud from '$lib/icons/Cloud.svelte';
-	import Light from '$lib/icons/Light.svelte';
-	import Compass from '$lib/icons/Compass.svelte';
-	import Rocket from '$lib/icons/Rocket.svelte';
+	import Time from "$lib/icons/Stopwatch.svelte";
+	import Fire from "$lib/icons/Fire.svelte";
+	import Droplet from "$lib/icons/Droplet.svelte";
+	import Cloud from "$lib/icons/Cloud.svelte";
+	import Light from "$lib/icons/Light.svelte";
+	import Compass from "$lib/icons/Compass.svelte";
+	import Rocket from "$lib/icons/Rocket.svelte";
 
 	interface Parameters {
 		[index: string]: {
@@ -20,40 +20,40 @@
 
 	const bmp280: Parameters = {
 		time: {
-			title: 'Time',
-			unit: '',
-			component: Time
+			title: "Time",
+			unit: "",
+			component: Time,
 		},
 		temperature: {
-			title: 'Temperature',
-			unit: 'ºC',
-			component: Fire
+			title: "Temperature",
+			unit: "ºC",
+			component: Fire,
 		},
 		humidity: {
-			title: 'Humidity',
-			unit: '%',
-			component: Droplet
+			title: "Humidity",
+			unit: "%",
+			component: Droplet,
 		},
 		pressure: {
-			title: 'Pressure',
-			unit: 'hPa',
-			component: Cloud
+			title: "Pressure",
+			unit: "hPa",
+			component: Cloud,
 		},
 		luminance: {
-			title: 'Luminance',
-			unit: 'lm',
-			component: Light
+			title: "Luminance",
+			unit: "lm",
+			component: Light,
 		},
 		orientation: {
-			title: 'Orientation',
-			unit: 'º',
-			component: Compass
+			title: "Orientation",
+			unit: "deg",
+			component: Compass,
 		},
 		acceleration: {
-			title: 'Acceleration',
-			unit: 'g',
-			component: Rocket
-		}
+			title: "Acceleration",
+			unit: "g",
+			component: Rocket,
+		},
 	};
 </script>
 
@@ -89,11 +89,12 @@
 
 	div.title {
 		font-size: 1.2rem;
-		color: var(--subtext0);
+		font-weight: bold;
+		color: var(--subtext);
 	}
 
 	span.unit {
-		color: var(--blue);
+		color: var(--yellow);
 	}
 
 	:global(#measurement) {

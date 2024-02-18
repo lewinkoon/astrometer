@@ -13,7 +13,7 @@
 	header {
 		display: flex;
 		align-items: baseline;
-		gap: 2rem;
+		gap: 1.2rem;
 		max-width: 1080px;
 		width: 100%;
 		margin-bottom: 4rem;
@@ -31,7 +31,7 @@
 
 		&:hover {
 			& span {
-				color: var(--red);
+				color: var(--yellow);
 			}
 		}
 	}

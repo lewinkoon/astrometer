@@ -20,39 +20,21 @@
 		scroll-behavior: smooth;
 		background-color: var(--base);
 
-		--darker: #212529;
-		--dark: #495057;
-		--medium: #adb5bd;
-		--light: #dee2e6;
-		--lighter: #f8f9fa;
-		--accent: #3a86ff;
-
-		--rosewater: #f2d5cf;
-		--flamingo: #eebebe;
-		--pink: #f4b8e4;
-		--mauve: #ca9ee6;
-		--red: #e78284;
-		--maroon: #ea999c;
-		--peach: #ef9f76;
-		--yellow: #e5c890;
-		--green: #a6d189;
-		--teal: #81c8be;
-		--sky: #99d1db;
-		--sapphire: #85c1dc;
-		--blue: #8caaee;
-		--lavender: #babbf1;
-		--text: #c6d0f5;
-		--subtext1: #b5bfe2;
-		--subtext0: #a5adce;
-		--overlay2: #949cbb;
-		--overlay1: #838ba7;
-		--overlay0: #737994;
-		--surface2: #626880;
-		--surface1: #51576d;
-		--surface0: #414559;
-		--base: #303446;
-		--mantle: #292c3c;
-		--crust: #232634;
+		--yellow: #ffbe0b;
+		--orange: #fb5607;
+		--pink: #ff006e;
+		--mauve: #8338ec;
+		--blue: #3a86ff;
+		--text: #f8f9fa;
+		--subtext: #e9ecef;
+		--overlay0: #adb5bd;
+		--overlay1: #ced4da;
+		--overlay2: #dee2e6;
+		--surface0: #343a40;
+		--surface1: #495057;
+		--surface2: #6c757d;
+		--base: #212529;
+		--black: #121417;
 	}
 
 	@font-face {
@@ -81,7 +63,6 @@
 	}
 
 	:global(h1, h2, h3, h4, h5, h6) {
-		font-weight: normal;
 		margin: 0;
 	}
 
@@ -97,7 +78,7 @@
 	}
 
 	:global(em) {
-		color: var(--green);
+		color: var(--yellow);
 		font-style: italic;
 	}
 

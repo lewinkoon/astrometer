@@ -10,7 +10,8 @@
 </a>
 
 <p>
-	Realtime <span style="color: var(--green)">data</span> from my <span style="color: var(--red)">weather station</span> every minute.
+	Realtime <span style="color: var(--yellow)">data</span> from my
+	<span style="color: var(--yellow)">weather station</span> every minute.
 </p>
 
 <div class="links">
@@ -28,19 +29,18 @@
 		flex-wrap: wrap;
 
 		& h1 {
-			font-size: 4.5rem;
-			/* font-weight: bold; */
+			font-size: 4rem;
 
 			&:hover {
 				& span {
-					color: var(--red);
+					color: var(--yellow);
 				}
 			}
 		}
 
 		& span {
 			color: var(--blue);
-			transition: color 0.3s ease-in-out;
+			transition: color 0.2s ease-in-out;
 		}
 
 		& #satellite {
@@ -65,17 +65,14 @@
 			padding: 0.5rem 1rem;
 			background-color: var(--surface0);
 			border-radius: 12px;
-			border: thin solid var(--surface1);
+			border: thin solid var(--surface0);
 			font-size: 1.2rem;
 			display: flex;
 			align-items: center;
 
-			&.init {
-				border: thin solid var(--blue);
-			}
-
 			&:hover {
 				background-color: var(--surface1);
+				border: thin solid var(--surface1);
 			}
 		}
 	}

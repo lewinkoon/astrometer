@@ -28,11 +28,11 @@
 		}
 	}
 
-	#netlify {
+	#svelte {
 		color: var(--blue);
 	}
 
-	#svelte {
-		color: var(--red);
+	#netlify {
+		color: var(--yellow);
 	}
 </style>

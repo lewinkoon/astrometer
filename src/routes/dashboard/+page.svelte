@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { PageData } from '../dashboard/$types';
-	import Chart from '$lib/Chart.svelte';
-	import Graph from '$lib/icons/Graph.svelte';
+	import type { PageData } from "../dashboard/$types";
+	import Chart from "$lib/Chart.svelte";
+	import Graph from "$lib/icons/Graph.svelte";
 
 	export let data: PageData;
 	const bmp280 = data.data;
@@ -15,7 +15,7 @@
 	<p>Here you'll find the <em>evolution</em> over time of every parameter</p>
 </section>
 
-{#each ['Temperature', 'Pressure'] as param}
+{#each ["Temperature", "Pressure"] as param}
 	<section class="chart">
 		<div class="header">
 			<h2>{param}</h2>
@@ -40,7 +40,6 @@
 
 			& h1 {
 				font-size: 3.2rem;
-				font-weight: normal;
 				display: flex;
 				align-items: center;
 
@@ -71,7 +70,7 @@
 
 				& span.line {
 					flex-grow: 1;
-					border-bottom: 4px solid var(--blue);
+					border-bottom: 2px solid var(--blue);
 					border-radius: 2px;
 					margin: auto 1rem auto 1rem;
 				}

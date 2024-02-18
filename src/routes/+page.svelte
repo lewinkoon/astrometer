@@ -71,11 +71,8 @@
 
 <style>
 	section.model {
-		/* border: thin solid var(--surface0); */
-		/* background-color: var(--mantle); */
 		border-radius: 10px;
 		max-height: 360px;
-		/* margin: 0; */
 	}
 
 	div.title {
@@ -86,14 +83,13 @@
 
 	div.title h2 {
 		font-size: 2rem;
-		/* font-weight: bold; */
-		color: var(--green);
+		color: var(--subtext);
 		margin-right: 1rem;
 	}
 
 	div.title span.line {
 		flex-grow: 1;
-		border-bottom: 2px solid var(--lavender);
+		border-bottom: 2px solid var(--blue);
 		border-radius: thin;
 	}
 
