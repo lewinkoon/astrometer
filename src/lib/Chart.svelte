@@ -1,8 +1,10 @@
 <script lang="ts">
 	export let type: string;
-	export let value: any;
+	export let parameter: number[];
+	export let time: string[];
+	export let color: string;
 
-	import { onMount } from 'svelte';
+	import { onMount } from "svelte";
 	import {
 		Chart,
 		ArcElement,
@@ -15,9 +17,9 @@
 		Tooltip,
 		TimeScale,
 		TimeSeriesScale,
-		Filler
-	} from 'chart.js';
-	import 'chartjs-adapter-date-fns';
+		Filler,
+	} from "chart.js";
+	import "chartjs-adapter-date-fns";
 	Chart.register(
 		ArcElement,
 		LineElement,
@@ -29,88 +31,65 @@
 		TimeScale,
 		TimeSeriesScale,
 		Tooltip,
-		Filler
+		Filler,
 	);
 
-	interface Sensor {
-		[index: string]: {
-			label: string;
-			value: any;
-			color: string;
-			background: string;
-		};
-	}
-
-	const options: Sensor = {
-		temperature: {
-			label: 'Temperature',
-			value: value.map((e: any) => e.temperature),
-			color: '#ed8796',
-			background: '#ed879633'
-		},
-		pressure: {
-			label: 'Pressure',
-			value: value.map((e: any) => e.pressure),
-			color: '#a6da95',
-			background: '#a6da9533'
-		}
-	};
-
-	Chart.defaults.font.family = 'regular';
-	Chart.defaults.borderColor = '#494d64';
-	Chart.defaults.color = '#cad3f5';
+	Chart.defaults.font.family = "regular";
+	Chart.defaults.borderColor = "#495057";
+	Chart.defaults.color = "#f8f9fa";
 	let ctx: any;
 
 	onMount(() => {
 		new Chart(ctx, {
-			type: 'line',
+			type: "line",
 			data: {
-				labels: value.map((e: any) => e.time),
+				labels: time,
 				datasets: [
 					{
-						label: options[type].label,
-						data: options[type].value,
+						label: type,
+						data: parameter,
 						tension: 0.3,
-						borderColor: options[type].color,
-						backgroundColor: options[type].background,
+						borderColor: color,
+						backgroundColor: color + "22",
 						fill: true,
 						pointRadius: 5,
-						pointBackgroundColor: '#24273a'
-					}
-				]
+						pointBackgroundColor: "#212529",
+					},
+				],
 			},
 			options: {
-				locale: 'en-EN',
+				locale: "en-EN",
 				scales: {
 					y: {
 						title: {
 							display: true,
-							text: options[type].label
+							text: type,
 						},
 						ticks: {
-							precision: 1
-						}
+							precision: 1,
+						},
 					},
 					x: {
 						title: {
 							display: true,
-							text: 'Time of measurement'
+							text: "Time of measurement",
 						},
-						type: 'time',
+						type: "time",
 						time: {
-							unit: 'minute',
+							unit: "hour",
 							displayFormats: {
-								day: 'eee d/M',
-								second: 'hh:ss'
-							}
+								day: "eee d/M",
+								hour: "HH:ss",
+								second: "hh:ss",
+							},
 						},
 						grid: {
-							display: false
-						}
-					}
+							display: true,
+						},
+					},
 				},
-				maintainAspectRatio: false
-			}
+				maintainAspectRatio: false,
+			},
 		});
 	});
 </script>
@@ -121,6 +100,6 @@
 
 <style>
 	div.wrapper canvas {
-		min-width: 400px;
+		min-width: 600px;
 	}
 </style>
