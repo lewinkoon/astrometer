@@ -1,6 +1,5 @@
-import type { PageServerLoad } from './$types';
+import type { PageLoad } from './$types';
 import { supabase } from '$lib/supabase';
-import { logger } from '$lib/server/logger';
 
 interface LastUpdate {
     "timestamp": string[];
@@ -23,7 +22,5 @@ export const load = (async () => {
         pressure: res.data!.map(item => item.pressure),
     }
 
-    logger.info(data);
-
     return data;
-}) satisfies PageServerLoad;
+}) satisfies PageLoad;
