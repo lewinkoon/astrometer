@@ -100,6 +100,6 @@
 
 <style>
 	div.wrapper canvas {
-		min-width: 600px;
+		min-height: 240px;
 	}
 </style>
