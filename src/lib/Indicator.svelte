@@ -10,6 +10,7 @@
 		[index: string]: {
 			title: string;
 			unit: string;
+			color: string;
 			component: any;
 		};
 	}
@@ -18,16 +19,19 @@
 		temperature: {
 			title: "Temperature",
 			unit: "ºC",
+			color: "#fb5607",
 			component: Fire,
 		},
 		humidity: {
 			title: "Humidity",
 			unit: "%",
+			color: "#8338ec",
 			component: Droplet,
 		},
 		pressure: {
 			title: "Pressure",
 			unit: "hPa",
+			color: "#ff006e",
 			component: Cloud,
 		},
 	};
@@ -39,7 +43,9 @@
 		<svelte:component this={bmp280[type].component} />
 	</div>
 	<div class="value">
-		{value}&nbsp;<span class="unit">{bmp280[type].unit}</span>
+		{value}&nbsp;<span style="color: {bmp280[type].color}"
+			>{bmp280[type].unit}</span
+		>
 	</div>
 </div>
 
@@ -68,10 +74,6 @@
 	div.value {
 		font-size: 2.4rem;
 		font-weight: bold;
-	}
-
-	span.unit {
-		color: var(--blue);
 	}
 
 	:global(#measurement) {
