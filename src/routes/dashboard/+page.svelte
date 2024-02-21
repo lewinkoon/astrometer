@@ -77,7 +77,6 @@
 		h1 {
 			font-size: 3.2rem;
 			display: flex;
-			align-items: center;
 
 			:global(#graph) {
 				width: 4rem;
@@ -86,6 +85,8 @@
 
 		p {
 			font-size: 1.6rem;
+			max-width: 80%;
+			text-align: center;
 		}
 	}
 
