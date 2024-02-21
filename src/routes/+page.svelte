@@ -65,7 +65,7 @@
 
 	@media (max-width: 600px) {
 		div.content {
-			grid-template-columns: repeat(1, auto);
+			grid-template-columns: repeat(3, 1fr);
 		}
 	}
 </style>

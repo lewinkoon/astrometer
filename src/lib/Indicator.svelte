@@ -2,13 +2,9 @@
 	export let type: string;
 	export let value: number;
 
-	import Time from "$lib/icons/Stopwatch.svelte";
 	import Fire from "$lib/icons/Fire.svelte";
 	import Droplet from "$lib/icons/Droplet.svelte";
 	import Cloud from "$lib/icons/Cloud.svelte";
-	import Light from "$lib/icons/Light.svelte";
-	import Compass from "$lib/icons/Compass.svelte";
-	import Rocket from "$lib/icons/Rocket.svelte";
 
 	interface Parameters {
 		[index: string]: {
@@ -19,11 +15,6 @@
 	}
 
 	const bmp280: Parameters = {
-		time: {
-			title: "Time",
-			unit: "",
-			component: Time,
-		},
 		temperature: {
 			title: "Temperature",
 			unit: "ºC",
@@ -39,58 +30,44 @@
 			unit: "hPa",
 			component: Cloud,
 		},
-		luminance: {
-			title: "Luminance",
-			unit: "lm",
-			component: Light,
-		},
-		orientation: {
-			title: "Orientation",
-			unit: "deg",
-			component: Compass,
-		},
-		acceleration: {
-			title: "Acceleration",
-			unit: "g",
-			component: Rocket,
-		},
 	};
 </script>
 
 <div class="indicator">
-	<svelte:component this={bmp280[type].component} />
-	<div class="content">
-		<div class="title">{bmp280[type].title}</div>
-		<div class="value">
-			{value}&nbsp;<span class="unit">{bmp280[type].unit}</span>
-		</div>
+	<div class="title">
+		<h3>{bmp280[type].title}</h3>
+		<svelte:component this={bmp280[type].component} />
+	</div>
+	<div class="value">
+		{value}&nbsp;<span class="unit">{bmp280[type].unit}</span>
 	</div>
 </div>
 
 <style>
 	div.indicator {
 		display: flex;
+		flex-direction: column;
 		align-items: center;
-		justify-content: center;
-		padding: 1rem;
-
-		font-size: 2.4rem;
+		padding: 1.2rem 1.6rem;
 		border-radius: 12px;
-		border: thin solid var(--surface1);
+		border: thin solid var(--surface0);
 		background-color: var(--surface0);
 		color: var(--text);
 	}
 
-	div.content {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-	}
-
 	div.title {
+		display: flex;
+		justify-content: center;
+		gap: 0.4rem;
 		font-size: 1.2rem;
 		font-weight: bold;
 		color: var(--subtext);
+		margin-bottom: 0.8rem;
+	}
+
+	div.value {
+		font-size: 2.4rem;
+		font-weight: bold;
 	}
 
 	span.unit {
@@ -98,8 +75,7 @@
 	}
 
 	:global(#measurement) {
-		width: 4.5rem;
+		width: 2rem;
 		height: auto;
-		margin-right: 1rem;
 	}
 </style>
