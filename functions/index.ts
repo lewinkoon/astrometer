@@ -2,6 +2,7 @@ import {
   Bot,
   webhookCallback,
 } from "https://deno.land/x/grammy@v1.21.1/mod.ts";
+import { format } from "https://deno.land/x/date_fns@v2.22.1/index.js";
 
 // get bot token
 const token = Deno.env.get("BOT_TOKEN");
@@ -13,7 +14,10 @@ bot.command(
   "start",
   (ctx) => ctx.reply("Hi there! This is Astrobot."),
 );
-bot.command("ping", (ctx) => ctx.reply(`Pong! ${new Date().toISOString()}`));
+bot.command(
+  "ping",
+  (ctx) => ctx.reply(`Pong! ${format(new Date(), "yyyy-MM-dd HH:mm:ss")}`),
+);
 
 // setup webhook
 const handleUpdate = webhookCallback(bot, "std/http");
