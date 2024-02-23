@@ -2,7 +2,7 @@ import {
   Bot,
   webhookCallback,
 } from "https://deno.land/x/grammy@v1.21.1/mod.ts";
-import { format } from "https://deno.land/std@0.160.0/datetime/mod.ts";
+import { toIMF } from "https://deno.land/std@0.160.0/datetime/mod.ts";
 
 // get bot token
 const token = Deno.env.get("BOT_TOKEN");
@@ -16,7 +16,7 @@ bot.command(
 );
 bot.command(
   "ping",
-  (ctx) => ctx.reply(`Pong! ${format(new Date(), "yyyy-MM-dd HH:mm:ss")}`),
+  (ctx) => ctx.reply(`Pong! ${toIMF(new Date())}`),
 );
 
 // setup webhook
