@@ -11,7 +11,7 @@ const bot = new Bot(token);
 // set bot commands
 bot.command(
   "start",
-  (ctx) => ctx.reply("Hi there! This is Astrobot. How can i help you?"),
+  (ctx) => ctx.reply("Hi there! This is Astrobot."),
 );
 bot.command("ping", (ctx) => ctx.reply(`Pong! ${new Date()}`));
 
