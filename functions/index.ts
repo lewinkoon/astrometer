@@ -78,7 +78,10 @@ bot.use(menu);
 // show bot info
 bot.command(
   "start",
-  (ctx) => ctx.reply("Hi there! This is Astrobot 🛰️"),
+  async (ctx) =>
+    await ctx.reply("Hi there! This is Astrobot 🛰️", {
+      reply_markup: menu,
+    }),
 );
 
 // check bot status
