@@ -2,7 +2,7 @@ import {
   Bot,
   webhookCallback,
 } from "https://deno.land/x/grammy@v1.21.1/mod.ts";
-import { format } from "https://deno.land/x/date_fns@v2.22.1/index.js";
+import { format } from "https://deno.land/std@0.160.0/datetime/mod.ts";
 
 // get bot token
 const token = Deno.env.get("BOT_TOKEN");
