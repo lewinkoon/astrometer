@@ -13,7 +13,7 @@ bot.command(
   "start",
   (ctx) => ctx.reply("Hi there! This is Astrobot."),
 );
-bot.command("ping", (ctx) => ctx.reply(`Pong! ${new Date()}`));
+bot.command("ping", (ctx) => ctx.reply(`Pong! ${new Date().toISOString()}`));
 
 // setup webhook
 const handleUpdate = webhookCallback(bot, "std/http");
