@@ -15,36 +15,41 @@
 		<a href="#setup">Setup</a>
 		<span class="line"></span>
 	</h2>
+
 	<p>Clone the repository.</p>
 
-	<code>
-		<span>git clone https://github.com/lewinkoon/astrometer</span>
-	</code>
+	<div class="codeblock">
+		<code data-lang="bash">
+			<span>git clone https://github.com/lewinkoon/astrometer</span>
+		</code>
+	</div>
 
 	<p>Set environment variables</p>
 
-	<code>
-		<span>cd astrometer</span>
-		<span>touch .env</span>
-		<span
-			>echo "PUBLIC_SUPABASE_ANON_KEY=[ANONYMOUS KEY]" >> .env <span>
-				<span>touch .env</span>
-			</span></span
-		>
-		<span>echo "PUBLIC_SUPABASE_URL=[DATABASE URL]" >> .env</span>
-	</code>
+	<div class="codeblock">
+		<code data-lang="bash">
+			<span>cd astrometer</span>
+			<span>touch .env</span>
+			<span>echo "PUBLIC_SUPABASE_ANON_KEY=[ANONYMOUS KEY]" >> .env</span>
+			<span>echo "PUBLIC_SUPABASE_URL=[DATABASE URL]" >> .env</span>
+		</code>
+	</div>
 
 	<p>Run local server for development.</p>
 
-	<code>
-		<span>pnpm run dev</span>
-	</code>
+	<div class="codeblock">
+		<code data-lang="bash">
+			<span>pnpm run dev</span>
+		</code>
+	</div>
 
 	<p>Or build the app.</p>
 
-	<code>
-		<span>pnpm run build</span>
-	</code>
+	<div class="codeblock">
+		<code data-lang="bash">
+			<span>pnpm run build</span>
+		</code>
+	</div>
 
 	<h2 id="contributing">
 		<a href="#contributing">Contributing</a>
@@ -117,14 +122,29 @@
 			}
 		}
 
-		code {
-			font-family: monospace;
-			border-left: 3px solid var(--blue);
-			padding: 0 1rem;
-			margin: 0 0 1.6rem;
+		div.codeblock {
+			background-color: var(--black);
+			border-radius: 10px;
+			margin: 0 0 2rem;
+			padding: 1rem;
 
-			span {
-				display: flex;
+			code {
+				font-family: mono;
+				line-height: 1.25;
+				overflow-x: auto;
+
+				&::before {
+					display: block;
+					content: attr(data-lang);
+					color: var(--blue);
+					font-weight: bold;
+					margin-bottom: 1rem;
+					text-transform: uppercase;
+				}
+
+				span {
+					display: flex;
+				}
 			}
 		}
 	}
