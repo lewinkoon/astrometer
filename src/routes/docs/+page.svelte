@@ -85,6 +85,7 @@
 
 		p {
 			font-size: 1.6rem;
+			text-align: center;
 		}
 	}
 
@@ -127,11 +128,12 @@
 			border-radius: 10px;
 			margin: 0 0 2rem;
 			padding: 1rem;
+			overflow-x: auto;
 
 			code {
 				font-family: mono;
 				line-height: 1.25;
-				overflow-x: auto;
+				margin: 0;
 
 				&::before {
 					display: block;
@@ -144,6 +146,7 @@
 
 				span {
 					display: flex;
+					white-space: nowrap;
 				}
 			}
 		}
